@@ -18,6 +18,7 @@ class Search extends Component {
     e.preventDefault();
     fetch(`https://itunes.apple.com/search?term=${this.state.search}&entity=album`)
     .then(res => res.json())
+    // .then(data => console.log(data.results))
     .then(data => this.props.addAlbums(data.results))
     .catch(err => console.log(err))
     this.setState({ search: ''})

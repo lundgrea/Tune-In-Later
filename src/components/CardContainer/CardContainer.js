@@ -30,7 +30,7 @@ const CardContainer = (props) => {
 }
 
 const mapStateToProps = (store) => ({
-  albums: store.albums.albums
+  albums: store.albums
 })
 
 export default connect(mapStateToProps)(CardContainer)
