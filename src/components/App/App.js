@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from '../Search/Search'
 import './App.css';
+import CardContainer from '../CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
@@ -13,7 +14,8 @@ class App extends Component {
     return (
       <>
       <h1>HOLA</h1>
-      <Search/>
+      <Search />
+      <CardContainer />
       </>
     )
   }

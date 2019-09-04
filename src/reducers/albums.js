@@ -1,7 +1,7 @@
 export const albumsReducer = (state=[], action) => {
   switch(action.type) {
     case 'ADD_ALBUMS':
-      return [...state, action]
+      return action
     default:
       return state
   }
