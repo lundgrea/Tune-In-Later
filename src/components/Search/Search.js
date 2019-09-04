@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { addAlbums } from '../../actions'
 
 class Search extends Component {
   constructor(){
@@ -16,7 +18,7 @@ class Search extends Component {
     e.preventDefault();
     fetch(`https://itunes.apple.com/search?term=${this.state.search}&entity=album`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => this.props.addAlbums(data.results))
     // this.setState({ search: ''})
   }
 
@@ -35,4 +37,8 @@ class Search extends Component {
   }
 }
 
-export default Search
+const mapDispatchToProps = dispatch => ({
+  addAlbums: albums => dispatch(addAlbums(albums))
+})
+
+export default connect(null, mapDispatchToProps)(Search)
