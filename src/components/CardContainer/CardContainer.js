@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 
 const CardContainer = (props) => {
+  console.log(props)
   let cards
   if(props.albums !== undefined) {
     cards = props.albums.map(album => {
@@ -12,7 +13,7 @@ const CardContainer = (props) => {
       albumName={album.collectionName}
       genre={album.primaryGenreName}
       id={album.collectionId}
-      img={album.collectionViewUrl}
+      img={album.artworkUrl100}
       key={album.collectionId}
     />
   })
