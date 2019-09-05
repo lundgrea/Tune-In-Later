@@ -8,20 +8,19 @@ export const getAlbums = async (artist) => {
     throw new Error("Failed to get albums");
   }
 }
-
 export const loginUser = async (user) => {
-  console.log(user)
+  try {
     const options = {
-      method: 'GET',
+      method: 'POST',
       body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json'
       }
     }
-   
-    const response = await fetch('http://localhost:3001/api/v1/login')
-    const result = await response.json()
-    console.log(result)
-    
-    return result
+      const response = await fetch('http://localhost:3001/api/v1/login', options)
+      const result = await response.json()
+      return result
+  } catch(error) {
+    throw new Error(error)
+  }
 }
