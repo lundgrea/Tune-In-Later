@@ -1,7 +1,6 @@
 import React from 'react'
 import './Card.css'
-import { connect } from 'react-redux';
-// import { toggleFavorite } from '../../actions'
+
 
 
 const Card = props => {
@@ -17,9 +16,5 @@ const Card = props => {
     </>
   )
 }
-
-// const mapDispatchToProps = dispatch => ({
-//   toggleFavorite: id => dispatch(toggleFavorite(id))
-// })
 
 export default Card;
