@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addAlbums } from '../../actions'
+import { getAlbums } from '../../apiCalls/apiCalls'
 
 class Search extends Component {
   constructor(){
@@ -14,10 +15,9 @@ class Search extends Component {
     this.setState({search: e.target.value})
   }
 
-  fetchAlbums = e => {
-    e.preventDefault();
-    fetch(`https://itunes.apple.com/search?term=${this.state.search}&entity=album`)
-    .then(res => res.json())
+  fetchAlbums = (e) => {
+    e.preventDefault()
+    getAlbums(this.state.search)
     .then(data => data.results.map(result => ({
       artist:  result.artistName,
       albumName:  result.collectionName,
