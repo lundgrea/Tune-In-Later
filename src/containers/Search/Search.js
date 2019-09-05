@@ -18,8 +18,16 @@ class Search extends Component {
     e.preventDefault();
     fetch(`https://itunes.apple.com/search?term=${this.state.search}&entity=album`)
     .then(res => res.json())
-    // .then(data => console.log(data.results))
-    .then(data => this.props.addAlbums(data.results))
+    .then(data => data.results.map(result => ({
+      artist:  result.artistName,
+      albumName:  result.collectionName,
+      genre:  result.primaryGenreName,
+      id:  result.collectionId,
+      img:  result.artworkUrl100,
+      key:  result.collectionId,
+      isFavorite: false
+    })))
+    .then(data => this.props.addAlbums(data))
     .catch(err => console.log(err))
     this.setState({ search: ''})
   }

@@ -1,20 +1,17 @@
 import React from 'react';
 import Card from '../../components/Card/Card'
 import { connect } from 'react-redux';
+import { toggleFavorite } from '../../actions'
 
 
-const CardContainer = ({albums}) => {
+const CardContainer = ({albums, toggleFavorite}) => {
+  console.log('albums', albums)
   let cards
   if(albums !== undefined) {
     cards = albums.map(album => {
     return <Card 
-      artist={album.artistName}
-      albumName={album.collectionName}
-      genre={album.primaryGenreName}
-      id={album.collectionId}
-      img={album.artworkUrl100}
-      key={album.collectionId}
-      isFavorite={album.isFavorite}
+      {...album}
+      toggleFavorite={toggleFavorite}
     />
   })
   } else {
@@ -35,5 +32,9 @@ const mapStateToProps = (store) => ({
 })
 
 
+const mapDispatchToProps = dispatch => ({
+  toggleFavorite: id => dispatch(toggleFavorite(id))
+})
 
-export default connect(mapStateToProps)(CardContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardContainer)
