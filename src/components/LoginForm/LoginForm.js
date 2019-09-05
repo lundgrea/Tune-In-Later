@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../actions';
+import { loginUser } from '../../apiCalls/apiCalls'
 
 export class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
-      name: '',
       email: '',
       password: ''
     }
   }
 
-  loginInputs = (e) => {
+  loginInputs = e => {
     const {name, value} = e.target
     this.setState({ [name]: value })
   }
 
+  handleSubmit = async e => {
+    e.preventDefault();
 
+    const user = await loginUser(this.state)
+    await this.props.login(user)
+  }
   render() {
+    const { email, password } =  this.state
     return (
       <section>
         <form onSubmit={this.handleSubmit}>
@@ -28,7 +36,7 @@ export class LoginForm extends Component {
           onChange={this.loginInputs}
           />
         <input 
-          type="password"
+          type="input"
           value={password}
           name="password"
           placeholder='Password'
@@ -40,3 +48,9 @@ export class LoginForm extends Component {
     )
   }
 }
+
+export const mapDispatchToProps = dispatch => ({
+  login: user => dispatch(login(user))
+});
+
+export default connect(null, mapDispatchToProps)(LoginForm)
