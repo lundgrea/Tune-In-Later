@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
-import Search from '../Search/Search'
+import Search from '../../containers/Search/Search'
 import './App.css';
-import CardContainer from '../CardContainer/CardContainer';
+import CardContainer from '../../containers/CardContainer/CardContainer';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      albums: []
-    }
-  }
-  render() {
-    return (
-      <>
-      <h1>HOLA</h1>
-      <Search />
-      <CardContainer />
-      </>
-    )
-  }
+const App = () => {
+  
+  return (
+    <>
+    <h1>HOLA</h1>
+    <Search />
+    <CardContainer />
+    </>
+  )
 }
 
 export default App;
