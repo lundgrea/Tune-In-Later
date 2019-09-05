@@ -18,7 +18,16 @@ class Search extends Component {
   fetchAlbums = (e) => {
     e.preventDefault()
     getAlbums(this.state.search)
-    .then(data => this.props.addAlbums(data.results))
+    .then(data => data.results.map(result => ({
+      artist:  result.artistName,
+      albumName:  result.collectionName,
+      genre:  result.primaryGenreName,
+      id:  result.collectionId,
+      img:  result.artworkUrl100,
+      key:  result.collectionId,
+      isFavorite: false
+    })))
+    .then(data => this.props.addAlbums(data))
     .catch(err => console.log(err))
     this.setState({ search: ''})
   }
