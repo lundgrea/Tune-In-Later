@@ -12,3 +12,8 @@ export const toggleFavorite = id => ({
   type: 'TOGGLE_FAVORITE',
   id
 });
+
+export const createUser = user => ({
+  type: 'CREATE_USER',
+  user
+})
