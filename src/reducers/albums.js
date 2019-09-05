@@ -1,7 +1,14 @@
 export const albumsReducer = (state=[], action) => {
   switch(action.type) {
     case 'ADD_ALBUMS':
-      return action
+      return action.albums
+    case 'TOGGLE_FAVORITE':
+      return (state.map(album => {
+        if(album.id === action.id) {
+          album.isFavorite = !album.isFavorite
+        } 
+        return album
+      }))
     default:
       return state
   }

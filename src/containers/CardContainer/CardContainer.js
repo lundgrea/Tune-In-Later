@@ -1,19 +1,20 @@
 import React from 'react';
-import Card from '../Card/Card'
+import Card from '../../components/Card/Card'
 import { connect } from 'react-redux';
 
 
-const CardContainer = (props) => {
+const CardContainer = ({albums}) => {
   let cards
-  if(props.albums !== undefined) {
-    cards = props.albums.map(album => {
+  if(albums !== undefined) {
+    cards = albums.map(album => {
     return <Card 
       artist={album.artistName}
       albumName={album.collectionName}
       genre={album.primaryGenreName}
       id={album.collectionId}
-      img={album.collectionViewUrl}
+      img={album.artworkUrl100}
       key={album.collectionId}
+      isFavorite={album.isFavorite}
     />
   })
   } else {
@@ -30,7 +31,9 @@ const CardContainer = (props) => {
 }
 
 const mapStateToProps = (store) => ({
-  albums: store.albums.albums
+  albums: store.albums
 })
+
+
 
 export default connect(mapStateToProps)(CardContainer)
