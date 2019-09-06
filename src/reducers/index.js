@@ -4,7 +4,7 @@ import { userReducer } from './user'
 
 const rootReducer = combineReducers({
   albums: albumsReducer,
-  login: userReducer,
+  user: userReducer,
   createAccount: userReducer
 });
 
