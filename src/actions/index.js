@@ -6,6 +6,10 @@ export const addAlbums = albums => ({
 export const login = user => ({
   type: 'LOGIN',
   user
+});
+
+export const logout = () => ({
+  type: 'LOGOUT',
 })
 
 export const toggleFavorite = id => ({
@@ -16,4 +20,4 @@ export const toggleFavorite = id => ({
 export const createUser = user => ({
   type: 'CREATE_USER',
   user
-})
+});
