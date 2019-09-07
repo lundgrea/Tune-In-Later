@@ -4,7 +4,7 @@ import "./App.css";
 import { Route, NavLink } from "react-router-dom";
 import CardContainer from "../../containers/CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
-import { SignUpForm } from "../SignUpForm/SignUpForm";
+import SignUpForm from "../SignUpForm/SignUpForm";
 import { logout} from '../../actions';
 import { connect } from 'react-redux';
 

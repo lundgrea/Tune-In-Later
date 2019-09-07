@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { postUser } from "../../apiCalls/apiCalls";
-
-
-export class SignUpForm extends Component {
-  constructor() {
-    super();
+import { handleErrors } from '../../actions';
+import { connect } from 'react-redux';
+ 
+class SignUpForm extends Component {
+  constructor(props) {
+    super(props);
       this.state = {
         name: '',
         email: '',
@@ -19,14 +20,18 @@ export class SignUpForm extends Component {
     })
   }
 
-  createAccount = (e) => {
+  createAccount = async (e) => {
     e.preventDefault();
-    postUser(this.state);
-    this.setState({
-      name: '',
-      email: '',
-      password: ''
-    })
+    const user = await postUser(this.state);
+    if(user.error) {
+      this.props.handleError('Email has already been used')
+    } else {
+      this.setState({
+        name: '',
+        email: '',
+        password: ''
+      })
+    }
   }
 
 
@@ -59,3 +64,9 @@ export class SignUpForm extends Component {
     )
   }
 }
+
+export const mapDispatchToProps = dispatch => ({
+  handleError: error => dispatch(handleErrors(error))
+});
+
+ export default connect(null, mapDispatchToProps)(SignUpForm)

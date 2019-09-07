@@ -22,7 +22,7 @@ export class LoginForm extends Component {
 
     const user = await loginUser(this.state)
     if(user.error) {
-      this.props.handleError(user.error)
+      this.props.handleErrors(user.error)
     } else {
       await this.props.login(user)
     }
@@ -60,7 +60,7 @@ export const mapStateToProps = store => ({
 
 export const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user)),
-  handleError: error => dispatch(handleErrors(error))
+  handleErrors: error => dispatch(handleErrors(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
