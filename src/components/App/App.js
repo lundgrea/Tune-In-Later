@@ -5,10 +5,12 @@ import { Route, NavLink } from "react-router-dom";
 import CardContainer from "../../containers/CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import { SignUpForm } from "../SignUpForm/SignUpForm";
-import { logout } from '../../actions';
+import { logout} from '../../actions';
 import { connect } from 'react-redux';
 
-const App = ({ logout }) => {
+
+const App = ({ logout, error }) => {
+  
   return (
     <>
       <Route exact path="/" />
@@ -20,15 +22,23 @@ const App = ({ logout }) => {
         LOGOUT
       </NavLink>
       <Search />
-      <CardContainer />
       <SignUpForm />
       <Route exact path="/login" render={() => <LoginForm />} />
+      <div>{error || <CardContainer />}</div>
+      
+
     </>
   );
 };
+
+
+export const mapStateToProps = store => ({
+  error: store.error
+});
+
 
 export const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -45,3 +45,21 @@ export const postUser = async newUser => {
     throw new Error(error);
   }
 };
+
+export const postFavorite = async (user, newFavorite) => {
+  try {
+    const options = {
+      method: "POST", 
+      body: JSON.stringify(newFavorite),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    console.log(options)
+    const response = await fetch(`http://localhost:3001/api/v1/users/${user}/albumfavorites`	, options)
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw new Error (error);
+  }
+}
