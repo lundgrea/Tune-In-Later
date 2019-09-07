@@ -27,8 +27,3 @@ export const handleErrors = error => ({
   error
 })
 
-// export const postNewFavorite = (user, album) =>  ({
-//   type: 'POST_FAVORITE',
-//   user,
-//   album
-// })

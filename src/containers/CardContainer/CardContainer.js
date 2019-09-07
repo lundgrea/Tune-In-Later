@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '../../components/Card/Card'
+import Card from '../../containers/Card/Card'
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions'
 
-
 const CardContainer = ({albums, toggleFavorite, user}) => {
+  console.log(albums)
   let cards
   if(albums !== undefined) {
     cards = albums.map(album => {

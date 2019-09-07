@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addAlbums } from '../../actions'
 import { getAlbums } from '../../apiCalls/apiCalls'
 import { handleErrors } from '../../actions/index'
-
+import { getFavorites } from '../../apiCalls/apiCalls'
 
 class Search extends Component {
   constructor(){
@@ -15,6 +15,12 @@ class Search extends Component {
 
   handleChange = e => {
     this.setState({search: e.target.value})
+  }
+
+  checkFavorites = async () => {
+    const userFavorites = await getFavorites(this.props.user.id)
+    const favoritesObject = userFavorites.includes(favorite => favorite.album_id === this.props.album_id)
+    return favoritesObject
   }
 
   fetchAlbums = (e) => {
@@ -29,7 +35,7 @@ class Search extends Component {
       release_date: result.releaseDate,
       content_advisory_rating: result.contentAdvisoryRating,
       key: result.collectionId,
-      isFavorite: false
+      isFavorite:  false
     })))
     .then(data => this.props.addAlbums(data))
     .catch(err => console.log(err))
@@ -52,9 +58,14 @@ class Search extends Component {
   }
 }
 
+const mapStateToProps = store => ({
+  albums: store.albums,
+  user: store.user
+})
+
 const mapDispatchToProps = dispatch => ({
   addAlbums: albums => dispatch(addAlbums(albums)),
   handleErrors: (error) => dispatch(handleErrors(error))
 })
 
-export default connect(null, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(Search)

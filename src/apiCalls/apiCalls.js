@@ -44,8 +44,7 @@ export const postUser = async newUser => {
   }
 };
 
-export const postFavorite = async (user, newFavorite) => {
-  console.log('newFavorite :', newFavorite);
+export const postFavorite = async (userId, newFavorite) => {
   try {
     const options = {
       method: "POST", 
@@ -54,10 +53,21 @@ export const postFavorite = async (user, newFavorite) => {
         'Content-Type': 'application/json'
       }
     }
-    const response = await fetch(`http://localhost:3001/api/v1/users/${user}/albumfavorites`, options)
+    const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites`, options)
     const result = await response.json();
     return result;
   } catch (error) {
     throw new Error (error);
   }
 }
+
+export const getFavorites = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites`)
+    const result = await response.json();
+    return result.favorites
+  } catch (error) {
+    throw new Error (error)
+  }
+}
+
