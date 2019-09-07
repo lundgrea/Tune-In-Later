@@ -34,7 +34,6 @@ const Card = props => {
         props.toggleFavorite(props.album_id)
         favePost()
       } else{
-        // props.handleErrors('Favorite already saved')
         deleteFavorite(props.user.id, props.album_id)
     
       }
