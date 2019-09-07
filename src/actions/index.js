@@ -17,11 +17,6 @@ export const toggleFavorite = (id) => ({
   id
 });
 
-export const loginCheck = (user) => ({
-  type: 'LOGIN_CHECK',
-  user
-}) 
-
 export const createUser = user => ({
   type: 'CREATE_USER',
   user

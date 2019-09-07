@@ -35,8 +35,7 @@ const mapStateToProps = store => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  toggleFavorite: (id) => dispatch(toggleFavorite(id)),
-  loginCheck: (user) => dispatch(loginCheck(user))
+  toggleFavorite: (id) => dispatch(toggleFavorite(id))
 })
 
 

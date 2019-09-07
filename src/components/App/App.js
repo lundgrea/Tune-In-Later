@@ -9,26 +9,6 @@ import { logout} from '../../actions';
 import { connect } from 'react-redux';
 
 
-// export const toggleFavoriteBlocker = () => {
-//   console.log('are we even in here?')
-//   return (
-//     <>
-//     <Route exact path="/" />
-//     <h1>TUNE-IN LATER</h1>
-//     <NavLink exact to="/login">
-//       LOGIN
-//     </NavLink>
-//     <NavLink exact to='/' onClick={logout}>
-//       LOGOUT
-//     </NavLink>
-//     <Search />
-//     <SignUpForm />
-//     <Route exact path="/login" render={() => <LoginForm />} />
-//     <p>CAN'T FAV WITHOUT LOGGING IN</p>
-//     </>
-//   )
-// }
-
 const App = ({ logout, error }) => {
   
   return (
@@ -54,13 +34,11 @@ const App = ({ logout, error }) => {
 
 export const mapStateToProps = store => ({
   error: store.error
-
 });
 
 
 export const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout())
-  // loginCheck: (user) => dispatch(loginCheck(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
