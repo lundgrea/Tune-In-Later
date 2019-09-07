@@ -1,16 +1,15 @@
 import React from 'react';
 import Card from '../../components/Card/Card'
 import { connect } from 'react-redux';
-import { toggleFavorite, loginCheck } from '../../actions'
+import { toggleFavorite } from '../../actions'
 
 
-const CardContainer = ({albums, toggleFavorite, loginCheck, user}) => {
+const CardContainer = ({albums, toggleFavorite, user}) => {
   let cards
   if(albums !== undefined) {
     cards = albums.map(album => {
     return <Card 
       {...album}
-      loginCheck={loginCheck}
       toggleFavorite={toggleFavorite}
       user={user}
     />

@@ -21,12 +21,14 @@ class Search extends Component {
     e.preventDefault()
     getAlbums(this.state.search)
     .then(data => data.results.map(result => ({
-      artist:  result.artistName,
-      albumName:  result.collectionName,
-      genre:  result.primaryGenreName,
-      id:  result.collectionId,
-      img:  result.artworkUrl100,
-      key:  result.collectionId,
+      artist_name:  result.artistName,
+      album_name:  result.collectionName,
+      primary_genre_name:  result.primaryGenreName,
+      album_id:  result.collectionId,
+      artwork_url:  result.artworkUrl100,
+      release_date: result.releaseDate,
+      content_advisory_rating: result.contentAdvisoryRating,
+      key: result.collectionId,
       isFavorite: false
     })))
     .then(data => this.props.addAlbums(data))

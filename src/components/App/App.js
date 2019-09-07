@@ -22,9 +22,9 @@ const App = ({ logout, error }) => {
         LOGOUT
       </NavLink>
       <Search />
-      <p>{error || <CardContainer />}</p>
       <SignUpForm />
       <Route exact path="/login" render={() => <LoginForm />} />
+      <div>{error || <CardContainer />}</div>
       
 
     </>
