@@ -18,7 +18,7 @@ const Card = props => {
     album_name: props.album_name,
     artwork_url: props.artwork_url,
     release_date: props.release_date,
-    content_advisory_rating: props.content_advisory_rating,
+    content_advisory_rating: props.content_advisory_rating || 'Everybody',
     primary_genre_name: props.primary_genre_name
   }
 
