@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions';
+import { login, handleErrors } from '../../actions';
 import { loginUser } from '../../apiCalls/apiCalls'
 
 export class LoginForm extends Component {
@@ -21,8 +21,13 @@ export class LoginForm extends Component {
     e.preventDefault();
 
     const user = await loginUser(this.state)
-    await this.props.login(user)
+    if(user.error) {
+      this.props.handleErrors(user.error)
+    } else {
+      await this.props.login(user)
+    }
   }
+
   render() {
     const { email, password } =  this.state
     return (
@@ -49,8 +54,13 @@ export class LoginForm extends Component {
   }
 }
 
-export const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user))
+export const mapStateToProps = store => ({
+  error: store.error
 });
 
-export default connect(null, mapDispatchToProps)(LoginForm)
+export const mapDispatchToProps = dispatch => ({
+  login: user => dispatch(login(user)),
+  handleErrors: error => dispatch(handleErrors(error))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

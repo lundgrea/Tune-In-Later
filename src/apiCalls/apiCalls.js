@@ -28,7 +28,6 @@ export const loginUser = async user => {
 };
 
 export const postUser = async newUser => {
-  console.log("newUser :", newUser);
   try {
     const options = {
       method: "POST",
@@ -39,7 +38,6 @@ export const postUser = async newUser => {
     };
     const response = await fetch("http://localhost:3001/api/v1/users", options);
     const result = await response.json();
-    console.log("result :", result);
     return result;
   } catch (error) {
     throw new Error(error);

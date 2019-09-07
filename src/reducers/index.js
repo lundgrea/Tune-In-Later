@@ -6,7 +6,6 @@ import  { handleErrors } from './errors'
 const rootReducer = combineReducers({
   albums: albumsReducer,
   user: userReducer,
-  createAccount: userReducer,
   error: handleErrors
 });
 
