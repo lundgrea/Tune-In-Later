@@ -12,12 +12,22 @@ export const logout = () => ({
   type: 'LOGOUT',
 })
 
-export const toggleFavorite = id => ({
+export const toggleFavorite = (id) => ({
   type: 'TOGGLE_FAVORITE',
   id
 });
+
+export const loginCheck = (user) => ({
+  type: 'LOGIN_CHECK',
+  user
+}) 
 
 export const createUser = user => ({
   type: 'CREATE_USER',
   user
 });
+
+export const handleErrors = error => ({
+  type: 'HANDLE_ERROR',
+  error
+})

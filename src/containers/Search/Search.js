@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addAlbums } from '../../actions'
 import { getAlbums } from '../../apiCalls/apiCalls'
+import { handleErrors } from '../../actions/index'
+
 
 class Search extends Component {
   constructor(){
@@ -30,6 +32,7 @@ class Search extends Component {
     .then(data => this.props.addAlbums(data))
     .catch(err => console.log(err))
     this.setState({ search: ''})
+    this.props.handleErrors('')
   }
 
   render() {
@@ -48,7 +51,8 @@ class Search extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addAlbums: albums => dispatch(addAlbums(albums))
+  addAlbums: albums => dispatch(addAlbums(albums)),
+  handleErrors: (error) => dispatch(handleErrors(error))
 })
 
 export default connect(null, mapDispatchToProps)(Search)
