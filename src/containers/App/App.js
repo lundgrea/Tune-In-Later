@@ -7,11 +7,12 @@ import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import { logout } from '../../actions';
 import { connect } from 'react-redux';
-import { getFavorites } from '../../apiCalls/apiCalls'
 
 
 
-const App = ({ logout, error, user }) => {
+
+
+const App = ({ logout, error, user, favorites}) => {
 
   return (
     <>
@@ -28,9 +29,9 @@ const App = ({ logout, error, user }) => {
       </NavLink>
       <Search />
       <SignUpForm />
-      <Route exact path='/my-collection' render={() => <CardContainer albums={'hello'}/> } />
+      <Route exact path='/my-collection' render={() => <CardContainer dataType={"favorites"}/> } />
       <Route exact path="/login" render={() => <LoginForm />} />
-      <div>{error || <CardContainer />}</div>
+      <div>{error || <CardContainer dataType={"albums"}/>}</div>
       
 
     </>
@@ -40,12 +41,14 @@ const App = ({ logout, error, user }) => {
 
 export const mapStateToProps = store => ({
   error: store.error,
-  user: store.user
+  user: store.user,
+  favorites: store.favorites
 });
 
 
 export const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+ 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

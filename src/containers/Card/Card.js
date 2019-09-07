@@ -1,7 +1,7 @@
 import React from 'react'
-import { handleErrors } from '../../actions/index'
+import { handleErrors, storeFavorites } from '../../actions/index'
 import { connect } from 'react-redux'
-import { postFavorite, getFavorites } from '../../apiCalls/apiCalls'
+import { postFavorite, getFavorites, deleteFavorite } from '../../apiCalls/apiCalls'
 import './Card.css'
 
 
@@ -34,7 +34,9 @@ const Card = props => {
         props.toggleFavorite(props.album_id)
         favePost()
       } else{
-        props.handleErrors('Favorite already saved')
+        // props.handleErrors('Favorite already saved')
+        deleteFavorite(props.user.id, props.album_id)
+    
       }
     }
   }
@@ -50,8 +52,13 @@ const Card = props => {
   )
 }
 
+export const mapStateToProps = store => ({
+  favorites: store.favorites
+})
+
 export const mapDispatchToProps = dispatch => ({
-  handleErrors: (error) => dispatch(handleErrors(error))
+  handleErrors: (error) => dispatch(handleErrors(error)),
+  storeFavorites: (favorites) => dispatch(storeFavorites(favorites))
 })
 
 export default connect(null, mapDispatchToProps)(Card);

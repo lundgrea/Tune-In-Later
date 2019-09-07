@@ -35,12 +35,13 @@ class Search extends Component {
       release_date: result.releaseDate,
       content_advisory_rating: result.contentAdvisoryRating,
       key: result.collectionId,
-      isFavorite:  false
+      isFavorite: false
     })))
     .then(data => this.props.addAlbums(data))
     .catch(err => console.log(err))
     this.setState({ search: ''})
     this.props.handleErrors('')
+    
   }
 
   render() {
