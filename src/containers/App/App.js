@@ -5,12 +5,14 @@ import { Route, NavLink } from "react-router-dom";
 import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
-import { logout} from '../../actions';
+import { logout } from '../../actions';
 import { connect } from 'react-redux';
+import { getFavorites } from '../../apiCalls/apiCalls'
 
 
-const App = ({ logout, error }) => {
-  
+
+const App = ({ logout, error, user }) => {
+
   return (
     <>
       <Route exact path="/" />
@@ -21,8 +23,12 @@ const App = ({ logout, error }) => {
       <NavLink exact to='/' onClick={logout}>
         LOGOUT
       </NavLink>
+      <NavLink exact to='/my-collection'>
+        Favorites
+      </NavLink>
       <Search />
       <SignUpForm />
+      <Route exact path='/my-collection' render={() => <CardContainer albums={'hello'}/> } />
       <Route exact path="/login" render={() => <LoginForm />} />
       <div>{error || <CardContainer />}</div>
       
@@ -33,7 +39,8 @@ const App = ({ logout, error }) => {
 
 
 export const mapStateToProps = store => ({
-  error: store.error
+  error: store.error,
+  user: store.user
 });
 
 
