@@ -1,8 +1,8 @@
 import React from "react";
-import Search from "../../containers/Search/Search";
+import Search from "../Search/Search";
 import "./App.css";
 import { Route, NavLink } from "react-router-dom";
-import CardContainer from "../../containers/CardContainer/CardContainer";
+import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import { logout} from '../../actions';

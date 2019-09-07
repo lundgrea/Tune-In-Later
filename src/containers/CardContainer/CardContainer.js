@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../components/Card/Card'
+import Card from '../../containers/Card/Card'
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions'
 
