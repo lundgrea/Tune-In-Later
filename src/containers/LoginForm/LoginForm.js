@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login, handleErrors } from '../../actions';
-import { loginUser } from '../../apiCalls/apiCalls'
+import { loginUser } from '../../apiCalls/apiCalls';
+import { storeFavorites } from "../../actions";
+import { getFavorites } from '../../apiCalls/apiCalls'
 
 export class LoginForm extends Component {
   constructor() {
@@ -20,11 +22,13 @@ export class LoginForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const user = await loginUser(this.state)
-    if(user.error) {
-      this.props.handleErrors(user.error)
+    const loggedUser= await loginUser(this.state)
+    if(loggedUser.error) {
+      this.props.handleErrors(loggedUser.error)
     } else {
-      await this.props.login(user)
+      await this.props.login(loggedUser)
+      const favorites = await getFavorites(this.props.user.id)
+      await this.props.storeFavorites(favorites)
     }
   }
 
@@ -55,12 +59,14 @@ export class LoginForm extends Component {
 }
 
 export const mapStateToProps = store => ({
-  error: store.error
+  error: store.error,
+  user: store.user
 });
 
 export const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user)),
-  handleErrors: error => dispatch(handleErrors(error))
+  handleErrors: error => dispatch(handleErrors(error)),
+  storeFavorites: (favorites) => dispatch(storeFavorites(favorites))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
