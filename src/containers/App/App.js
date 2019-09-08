@@ -18,20 +18,12 @@ const App = ({ logout, error, user, favorites}) => {
     <>
       <Route exact path="/" />
       <h1>TUNE-IN LATER</h1>
-      <Link exact to="/login">
-        <button>Login Page</button>
-      </Link>
-      <Link exact to='/sign-up'>
-        <button>Sign Up Page</button>
-      </Link>
-      {/* <NavLink exact to='/' onClick={logout}>
-        LOGOUT
-      </NavLink> */}
-      {user && 
-      <NavLink exact to='/my-collection'>
-        Favorites
-      </NavLink>
-      }
+
+      {user && <NavLink exact to='/my-collection'>Favorites</NavLink>}
+      {user && <NavLink exact to='/' onClick={logout}>LOGOUT</NavLink>}
+      {user && <NavLink exact to='/'>Home</NavLink>}
+      {!user && <Link exact to='/sign-up'><button>Sign Up Page</button></Link>}
+      {!user && <Link exact to="/login"><button>Login Page</button></Link>}
       <Link to='/'>
         <Search />
       </Link>
