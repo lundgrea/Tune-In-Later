@@ -37,6 +37,8 @@ const FavoriteContainer = ({toggleFavorite, user, favorites, dataType }) => {
       <div>
         <fieldset>
           <h3>Filter By Genre</h3>
+          <label for="show all">Show All</label>
+          <input type="radio" name="genre" value="show all" placeholder="radio buttons"></input>
           {genreNodes}
         </fieldset>
       </div>
