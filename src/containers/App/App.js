@@ -18,21 +18,35 @@ const App = ({ logout, error, user, favorites}) => {
     <>
       <Route exact path="/" />
       <h1>TUNE-IN LATER</h1>
-      <NavLink exact to="/login">
-        LOGIN
-      </NavLink>
-      <NavLink exact to='/' onClick={logout}>
+      <Link exact to="/login">
+        <button>Login Page</button>
+      </Link>
+      <Link exact to='/sign-up'>
+        <button>Sign Up Page</button>
+      </Link>
+      {/* <NavLink exact to='/' onClick={logout}>
         LOGOUT
-      </NavLink>
+      </NavLink> */}
+      {user && 
       <NavLink exact to='/my-collection'>
         Favorites
       </NavLink>
+      }
       <Link to='/'>
         <Search />
       </Link>
-      <SignUpForm />
-      <Route exact path='/my-collection' render={() => <CardContainer dataType={"favorites"}/> } />
-      <Route exact path="/login" render={() => <LoginForm />} />
+      <Route 
+      exact path='/sign-up' 
+      component={SignUpForm} 
+      />
+      <Route 
+      exact path='/my-collection' 
+      render={() => <CardContainer dataType={"favorites"}/> } 
+      />
+      <Route 
+      exact path="/login" 
+      component={LoginForm} 
+      />
       <div>{error || <CardContainer dataType={"albums"}/>}</div>
     </>
   );
