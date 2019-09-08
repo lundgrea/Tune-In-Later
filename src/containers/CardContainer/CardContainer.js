@@ -3,7 +3,6 @@ import Card from '../../containers/Card/Card';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
-import { AlbumDetails } from '../../Components/AlbumDetails/AlbumDetails';
 
 
 const CardContainer = ({albums, toggleFavorite, user}) => {

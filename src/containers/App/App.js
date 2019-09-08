@@ -2,7 +2,7 @@ import React from "react";
 import Search from "../Search/Search";
 import "./App.css";
 import { getFavorites } from "../../apiCalls/apiCalls";
-import { Route, NavLink, Link, Switch } from "react-router-dom";
+import { Route, NavLink, Link } from "react-router-dom";
 import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
@@ -29,6 +29,7 @@ const App = ({ logout, error, user, favorites, storeFavorites, albums}) => {
       {user && <NavLink exact to='/'>Home</NavLink>}
       {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
       {!user && <Link  to="/login"><button>Login Page</button></Link>}
+      <p>{error}</p>
       <Route exact path="/" />
       <Route 
       exact path='/search' 
