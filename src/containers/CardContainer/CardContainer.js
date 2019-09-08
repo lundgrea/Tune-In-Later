@@ -9,14 +9,17 @@ import { AlbumDetails } from '../../Components/AlbumDetails/AlbumDetails';
 const CardContainer = ({albums, toggleFavorite, user}) => {
     let cards = albums.map(album => {
     return (
-      <NavLink render={()=> <AlbumDetails album={album}/>} key={album.album_id} to={`/${album.album_id}`}>
-        <Card 
+      <>
+      <Card 
         {...album}
         toggleFavorite={toggleFavorite}
         user={user}
         key={album.id}
       />
-    </NavLink>
+      <NavLink key={album.album_id} to={`/${album.album_id}`}>
+      Details
+      </NavLink>
+    </>
     )
   });
 
