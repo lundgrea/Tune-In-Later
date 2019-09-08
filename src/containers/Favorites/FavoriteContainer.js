@@ -6,7 +6,8 @@ import { toggleFavorite } from '../../actions';
 
 const FavoriteContainer = ({toggleFavorite, user, favorites, dataType }) => {
   console.log('favorites', favorites)
-    let cards = favorites.map(favorite => {
+    let cards = favorites.map(favorite => 
+      {
       return <Card
         {...favorite}
         toggleFavorite={toggleFavorite}

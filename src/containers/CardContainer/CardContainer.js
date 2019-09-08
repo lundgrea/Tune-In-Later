@@ -5,8 +5,6 @@ import { toggleFavorite } from '../../actions';
 
 
 const CardContainer = ({albums, toggleFavorite, user, favorites, dataType}) => {
-  // let favCards, cards;
-  // if(dataType === 'albums') {
     let cards = albums.map(album => {
     return <Card 
       {...album}
@@ -15,20 +13,6 @@ const CardContainer = ({albums, toggleFavorite, user, favorites, dataType}) => {
       key={album.id}
     />
   });
-  // } else if (dataType === 'favorites') {
-  //    favCards = favorites.map(favorite => {
-  //     return <Card
-  //       {...favorite}
-  //       toggleFavorite={toggleFavorite}
-  //       user={user}
-  //       key={favorite.id}
-  //     />
-  //   });
-  // } else {
-    // const response = "ENTER AN ARTIST"
-    // return response;
-  // }
-
 
   return (
     <>

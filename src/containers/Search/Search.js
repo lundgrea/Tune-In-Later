@@ -4,7 +4,7 @@ import { addAlbums } from '../../actions';
 import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
 import { getFavorites } from '../../apiCalls/apiCalls';
-import { Route, NavLink, Link, Switch } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class Search extends Component {
   constructor(){
