@@ -1,14 +1,11 @@
 import React from 'react';
-import Card from '../../containers/Card/Card'
+import Card from '../../containers/Card/Card';
 import { connect } from 'react-redux';
-import { toggleFavorite } from '../../actions'
+import { toggleFavorite } from '../../actions';
 
 const CardContainer = ({albums, toggleFavorite, user, favorites, dataType}) => {
-  console.log(dataType)
-  console.log(favorites)
-  let cards
+  let cards;
   if(dataType === 'albums') {
-    console.log('album hey')
     cards = albums.map(album => {
     return <Card 
       {...album}
@@ -16,9 +13,8 @@ const CardContainer = ({albums, toggleFavorite, user, favorites, dataType}) => {
       user={user}
       key={album.id}
     />
-  })
+  });
   } else if (dataType === 'favorites') {
-    console.log('favorites hey')
     cards = favorites.map(favorite => {
       return <Card
         {...favorite}
@@ -26,16 +22,16 @@ const CardContainer = ({albums, toggleFavorite, user, favorites, dataType}) => {
         user={user}
         key={favorite.id}
       />
-    })
+    });
   } else {
     const response = "ENTER AN ARTIST"
-    return response
+    return response;
   }
 
 
   return (
     <>
-    {cards}
+      {cards}
     </>
   )
 }
