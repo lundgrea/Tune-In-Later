@@ -33,9 +33,12 @@ const Card = props => {
       if (!favoritesObject) {
         props.toggleFavorite(props.album_id)
         favePost()
-      } else{
+        const newFavorites = await getFavorites(props.user.id)
+        props.storeFavorites(newFavorites)
+      } else {
         deleteFavorite(props.user.id, props.album_id)
-    
+        const newFavorites = await getFavorites(props.user.id)
+        props.storeFavorites(newFavorites)
       }
     }
   }
@@ -47,6 +50,7 @@ const Card = props => {
     <p>{props.primary_genre_name}</p>
     <img src={props.artwork_url} alt=''></img>
     <img onClick={actionObject} className="card__button-fav" src={favStar} alt=''/>
+
     </>
   )
 }

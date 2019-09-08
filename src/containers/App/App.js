@@ -1,11 +1,12 @@
 import React from "react";
 import Search from "../Search/Search";
 import "./App.css";
+import { getFavorites } from "../../apiCalls/apiCalls";
 import { Route, NavLink, Link, Switch } from "react-router-dom";
 import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
-import { logout } from '../../actions';
+import { logout, storeFavorites } from '../../actions';
 import { connect } from 'react-redux';
 import  FavoriteContainer from "../Favorites/FavoriteContainer";
 
@@ -13,18 +14,20 @@ import  FavoriteContainer from "../Favorites/FavoriteContainer";
 
 
 
-const App = ({ logout, error, user, favorites}) => {
-
+const App = ({ logout, error, user, favorites, storeFavorites}) => {
+  const sendFavorites = async () => {
+    const newFavorites = await getFavorites(user.id)
+    storeFavorites(newFavorites)
+  } 
   return (
     <>
       <h1>TUNE-IN LATER</h1>
       <NavLink exact to='/search'>Search</NavLink>
-      {user && <NavLink exact to='/my-collection'>Favorites</NavLink>}
+      {user && <NavLink exact to='/my-collection' onClick={sendFavorites}>Favorites</NavLink>}
       {user && <NavLink exact to='/' onClick={logout}>LOGOUT</NavLink>}
       {user && <NavLink exact to='/'>Home</NavLink>}
       {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
       {!user && <Link  to="/login"><button>Login Page</button></Link>}
-      {/* <Search /> */}
       <Route exact path="/" />
       <Route 
       exact path='/search' 
@@ -58,7 +61,7 @@ export const mapStateToProps = store => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
- 
+  storeFavorites: (favorites) => dispatch(storeFavorites(favorites))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

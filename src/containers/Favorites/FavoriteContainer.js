@@ -13,6 +13,7 @@ const FavoriteContainer = ({toggleFavorite, user, favorites, dataType }) => {
         toggleFavorite={toggleFavorite}
         user={user}
         key={favorite.id}
+        isFavorite={true}
       />
     });
  
