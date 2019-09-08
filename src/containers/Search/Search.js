@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addAlbums } from '../../actions'
-import { getAlbums } from '../../apiCalls/apiCalls'
-import { handleErrors } from '../../actions/index'
-import { getFavorites } from '../../apiCalls/apiCalls'
+import { addAlbums } from '../../actions';
+import { getAlbums } from '../../apiCalls/apiCalls';
+import { handleErrors } from '../../actions/index';
+import { getFavorites } from '../../apiCalls/apiCalls';
+import {Link} from "react-router-dom";
 
 class Search extends Component {
   constructor(){
@@ -53,7 +54,9 @@ class Search extends Component {
             value={this.state.search}
             onChange={this.handleChange}
           />
-          <button onClick={this.fetchAlbums}>SEARCH</button>
+          <Link to='/'>
+            <button onClick={this.fetchAlbums}>SEARCH</button>
+          </Link>
         </form>
       )
   }

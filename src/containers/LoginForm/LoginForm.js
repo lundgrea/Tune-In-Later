@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { login, handleErrors } from '../../actions';
 import { loginUser } from '../../apiCalls/apiCalls';
 import { storeFavorites } from "../../actions";
-import { getFavorites } from '../../apiCalls/apiCalls'
+import { getFavorites } from '../../apiCalls/apiCalls';
+import { Route, NavLink, Link, Switch } from "react-router-dom";
 
 export class LoginForm extends Component {
   constructor() {
@@ -29,32 +30,43 @@ export class LoginForm extends Component {
       await this.props.login(loggedUser)
       const favorites = await getFavorites(this.props.user.id)
       await this.props.storeFavorites(favorites)
+      this.setState({
+        email: '',
+        password: ''
+      })
     }
   }
 
   render() {
     const { email, password } =  this.state
-    return (
-      <section>
-        <form onSubmit={this.handleSubmit}>
-        <input 
-          type="text"
-          value={email}
-          name="email"
-          placeholder='example@example.com'
-          onChange={this.loginInputs}
-          />
-        <input 
-          type="input"
-          value={password}
-          name="password"
-          placeholder='Password'
-          onChange={this.loginInputs}
-          />
-        <button>Login</button>
-      </form>
-    </section>
-    )
+    if(!this.props.user){
+      return (
+        <section>
+          <form>
+          <input 
+            type="text"
+            value={email}
+            name="email"
+            placeholder='example@example.com'
+            onChange={this.loginInputs}
+            />
+          <input 
+            type="input"
+            value={password}
+            name="password"
+            placeholder='Password'
+            onChange={this.loginInputs}
+            />
+          <Link to='/user'>
+              <button onClick={this.handleSubmit}>Login</button>
+          </Link>
+        </form>
+        <Route exact path='/user'></Route>
+      </section>
+      )
+    } else {
+      return ('')
+    }
   }
 }
 
