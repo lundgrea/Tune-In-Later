@@ -60,4 +60,4 @@ export const mapDispatchToProps = dispatch => ({
   storeFavorites: (favorites) => dispatch(storeFavorites(favorites))
 })
 
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
