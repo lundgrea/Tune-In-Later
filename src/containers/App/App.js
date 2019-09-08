@@ -7,6 +7,7 @@ import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import { logout } from '../../actions';
 import { connect } from 'react-redux';
+import  FavoriteContainer from "../Favorites/FavoriteContainer";
 
 
 
@@ -16,30 +17,33 @@ const App = ({ logout, error, user, favorites}) => {
 
   return (
     <>
-      <Route exact path="/" />
       <h1>TUNE-IN LATER</h1>
-
+      <NavLink exact to='/search'>Search</NavLink>
       {user && <NavLink exact to='/my-collection'>Favorites</NavLink>}
       {user && <NavLink exact to='/' onClick={logout}>LOGOUT</NavLink>}
       {user && <NavLink exact to='/'>Home</NavLink>}
-      {!user && <Link exact to='/sign-up'><button>Sign Up Page</button></Link>}
-      {!user && <Link exact to="/login"><button>Login Page</button></Link>}
-      <Link to='/'>
-        <Search />
-      </Link>
+      {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
+      {!user && <Link  to="/login"><button>Login Page</button></Link>}
+      {/* <Search /> */}
+      <Route exact path="/" />
+      <Route 
+      exact path='/search' 
+      component={Search}/>
       <Route 
       exact path='/sign-up' 
       component={SignUpForm} 
       />
       <Route 
       exact path='/my-collection' 
-      render={() => <CardContainer dataType={"favorites"}/> } 
+      component = {FavoriteContainer} 
       />
       <Route 
       exact path="/login" 
       component={LoginForm} 
       />
-      <div>{error || <CardContainer dataType={"albums"}/>}</div>
+      <Route 
+      exact path='/search'
+      component= {CardContainer}/>
     </>
   );
 };
