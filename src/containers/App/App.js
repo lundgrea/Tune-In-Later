@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "../Search/Search";
 import "./App.css";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Link, Switch } from "react-router-dom";
 import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
@@ -27,13 +27,13 @@ const App = ({ logout, error, user, favorites}) => {
       <NavLink exact to='/my-collection'>
         Favorites
       </NavLink>
-      <Search />
+      <Link to='/'>
+        <Search />
+      </Link>
       <SignUpForm />
       <Route exact path='/my-collection' render={() => <CardContainer dataType={"favorites"}/> } />
       <Route exact path="/login" render={() => <LoginForm />} />
       <div>{error || <CardContainer dataType={"albums"}/>}</div>
-      
-
     </>
   );
 };
