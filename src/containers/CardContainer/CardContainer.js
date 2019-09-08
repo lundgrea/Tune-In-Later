@@ -1,17 +1,22 @@
 import React from 'react';
 import Card from '../../containers/Card/Card';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
 
 
 const CardContainer = ({albums, toggleFavorite, user, favorites, dataType}) => {
     let cards = albums.map(album => {
-    return <Card 
-      {...album}
-      toggleFavorite={toggleFavorite}
-      user={user}
-      key={album.id}
-    />
+    return (
+      <Link key={album.album_id} to={`/${album.album_id}`}>
+        <Card 
+        {...album}
+        toggleFavorite={toggleFavorite}
+        user={user}
+        key={album.id}
+      />
+    </Link>
+    )
   });
 
   return (
