@@ -14,7 +14,6 @@ import { AlbumDetails } from "../../Components/AlbumDetails/AlbumDetails";
 
 
 
-
 const App = ({ logout, error, user, favorites, storeFavorites, albums}) => {
   const sendFavorites = async () => {
     const newFavorites = await getFavorites(user.id)
