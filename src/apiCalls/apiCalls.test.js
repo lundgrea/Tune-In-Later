@@ -1,6 +1,8 @@
 import { getAlbums, loginUser, postUser, postFavorite, getFavorite, deleteFavorite} from './apiCalls';
 
 
+
+
 describe('getAlbums', () => {
   let mockResponse;
   beforeEach(() => {
@@ -29,7 +31,7 @@ describe('getAlbums', () => {
   })
 
   it('should return an error (SAD)', () => {
-    fetch = jest.fn().mockImplementation(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: false
       })
@@ -39,16 +41,15 @@ describe('getAlbums', () => {
   })
 
   it('should return an error if the promise rejects (SAD)', () => {
-    fetch = jest.fn().mockImplementation(() => {
-      return Promise.reject({
-        message: 'Failed to get albums'
-      })
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('Failed to get albums'))
     })
     expect(getAlbums('adele')).rejects.toEqual(Error('Failed to get albums'))
-   
   })
 
 })
+
+
 
 
 describe('loginUser', () => {
@@ -87,7 +88,7 @@ describe('loginUser', () => {
   });
 
   it('should return an error (SAD)', () => {
-    fetch = jest.fn().mockImplementation(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: false
       })
@@ -96,14 +97,15 @@ describe('loginUser', () => {
   })
 
   it('should return an error if the promise rejects (SAD)', () => {
-    fetch = jest.fn().mockImplementation(() => {
-      return Promise.reject({
-        message: 'Server is down'
-      })
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('Incorrect login information'))
     })
     expect(loginUser()).rejects.toEqual(Error('Incorrect login information'))
     })
 })
+
+
+
 
 describe('postUser', () => {
   let mockResponse
