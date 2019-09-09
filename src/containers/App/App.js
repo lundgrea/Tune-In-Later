@@ -2,19 +2,19 @@ import React from "react";
 import Search from "../Search/Search";
 import "./App.css";
 import { getFavorites } from "../../apiCalls/apiCalls";
-import { Route, NavLink, Link, Switch } from "react-router-dom";
+import { Route, NavLink, Link } from "react-router-dom";
 import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import { logout, storeFavorites } from '../../actions';
 import { connect } from 'react-redux';
 import  FavoriteContainer from "../Favorites/FavoriteContainer";
+import { AlbumDetails } from "../../Components/AlbumDetails/AlbumDetails";
 
 
 
 
-
-const App = ({ logout, error, user, favorites, storeFavorites}) => {
+const App = ({ logout, error, user, favorites, storeFavorites, albums}) => {
   const sendFavorites = async () => {
     const newFavorites = await getFavorites(user.id)
     storeFavorites(newFavorites)
@@ -28,6 +28,7 @@ const App = ({ logout, error, user, favorites, storeFavorites}) => {
       {user && <NavLink exact to='/'>Home</NavLink>}
       {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
       {!user && <Link  to="/login"><button>Login Page</button></Link>}
+      <p>{error}</p>
       <Route exact path="/" />
       <Route 
       exact path='/search' 
@@ -46,13 +47,24 @@ const App = ({ logout, error, user, favorites, storeFavorites}) => {
       />
       <Route 
       exact path='/search'
-      component= {CardContainer}/>
+      component= {CardContainer}
+      />
+      <Route exact path='/:id' render={({match}) => {
+        const {id} = match.params;
+        const description = albums.find(album => {
+          return album.album_id === parseInt(id)
+        })
+        return description && <AlbumDetails album={description} />
+      }}/>
     </>
   );
 };
 
 
+
+
 export const mapStateToProps = store => ({
+  albums: store.albums,
   error: store.error,
   user: store.user,
   favorites: store.favorites

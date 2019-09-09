@@ -4,7 +4,7 @@ import { login, handleErrors } from '../../actions';
 import { loginUser } from '../../apiCalls/apiCalls';
 import { storeFavorites } from "../../actions";
 import { getFavorites } from '../../apiCalls/apiCalls';
-import { Route, NavLink, Link, Switch } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 export class LoginForm extends Component {
   constructor() {
