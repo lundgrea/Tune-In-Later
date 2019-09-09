@@ -42,8 +42,8 @@ export class LoginForm extends Component {
     const { email, password } =  this.state
     if(!this.props.user){
       return (
-        <section>
-          <form>
+        <>
+          <form className='login-form'>
           <input 
             type="text"
             value={email}
@@ -63,7 +63,7 @@ export class LoginForm extends Component {
           </Link>
         </form>
         <Route exact path='/user'></Route>
-      </section>
+      </>
       )
     } else {
       return ('')

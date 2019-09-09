@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 const CardContainer = ({albums, toggleFavorite, user}) => {
     let cards = albums.map(album => {
     return (
-      <>
+      <div className='card-container'>
       <Card 
         {...album}
         toggleFavorite={toggleFavorite}
@@ -18,7 +18,7 @@ const CardContainer = ({albums, toggleFavorite, user}) => {
       <NavLink key={album.album_id} to={`/${album.album_id}`}>
       Details
       </NavLink>
-    </>
+    </div>
     )
   });
 
