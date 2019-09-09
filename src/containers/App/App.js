@@ -20,34 +20,46 @@ const App = ({ logout, error, user, favorites, storeFavorites}) => {
     storeFavorites(newFavorites)
   } 
   return (
-    <>
+  <main>
+    <form className='search-form'>
       <h1>TUNE-IN LATER</h1>
-      <NavLink exact to='/search'>Search</NavLink>
-      {user && <NavLink exact to='/my-collection' onClick={sendFavorites}>Favorites</NavLink>}
-      {user && <NavLink exact to='/' onClick={logout}>LOGOUT</NavLink>}
-      {user && <NavLink exact to='/'>Home</NavLink>}
-      {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
-      {!user && <Link  to="/login"><button>Login Page</button></Link>}
-      <Route exact path="/" />
+        <NavLink exact to='/search'>Search</NavLink>
+        {user && <NavLink exact to='/' onClick={logout}>LOGOUT</NavLink>}
       <Route 
       exact path='/search' 
       component={Search}/>
-      <Route 
-      exact path='/sign-up' 
-      component={SignUpForm} 
-      />
-      <Route 
-      exact path='/my-collection' 
-      component = {FavoriteContainer} 
-      />
+      </form>
+      <section>
+      <nav>
+        <div className='login-div'>
+          {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
+          {!user && <Link  to="/login"><button>Login Page</button></Link>}
+        </div>
+        <div className='home-nav'>
+          {user && <NavLink exact to='/my-collection' onClick={sendFavorites}>Favorites</NavLink>}
+          {user && <NavLink exact to='/'>Home</NavLink>}
+        </div>
+      </nav>
+      <Route exact path="/" />
       <Route 
       exact path="/login" 
       component={LoginForm} 
       />
       <Route 
+      exact path='/sign-up' 
+      component={SignUpForm} 
+      />
+      <div className='favorites-container'>
+      <Route 
+      exact path='/my-collection' 
+      component = {FavoriteContainer} 
+      />
+      <Route 
       exact path='/search'
       component= {CardContainer}/>
-    </>
+      </div>
+      </section>
+    </main>
   );
 };
 
