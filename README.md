@@ -1,13 +1,19 @@
 
 # Tune In Later
 
-Our version of America's Favorite Game Show features: 
+Tune In Later, built as a three person team over the course of seven days utilizing an agile workflow, allows users to search the iTunes API for their favorite musical albums from within the application and, once logged in, save their favorites to their account. New users are encouraged to create an account in order to join the fun and save their favorites. The application bootstrapped with Create React App utilizes React Router for page navigation, Redux to assist in data management, PropTypes to ensure the correct data types are passed within the program, and a testing suite utilizing Enzyme and Jest. Tests cover UI changes, event simulation, async fetch calls, React state changes, and Redux store updates. 
 
-- Trivia data accessed and utilized with a Fetch API, 
-- Gameplay implemented using JavaScript classes, subclasses, objects and array prototype methods
-- A full testing suite demonstrating the app's test driven development
+In addition to the easy-to-navigate front end UI the application makes fetch calls to a local backend allowing existing users to login, new users to create an account, save their favorites, and delete their favorites from the associated backend database utilizing POST and DELETE network requests. The asyncronous JavaScript is managed utilizing async/await alongside try/catch for error handling. 
 
-The game allows three contestants to enter their names, select categories and point values from the gameboard, and answer questions one-by-one accumulating or squandering away their hard earned prize money. The infamous Daily Double and Final Jeopardy make their apperance within the program as instances of extended subclasses of the traditional Turn and Round classes respectively. The entire application is packaged using WebPack, tested with Mocha and Chai, and styled with SCSS.   
+## Technologies Utilized
+ - React
+ - React Router
+ - Redux
+ - iTunes API
+ - postgresSQL
+ - Fetch (GET/POST/DELETE) local server network requests
+ - PropTypes
+ - CSS
 
 ## Set Up
 
