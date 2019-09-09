@@ -4,7 +4,8 @@ import { login, handleErrors } from '../../actions';
 import { loginUser } from '../../apiCalls/apiCalls';
 import { storeFavorites } from "../../actions";
 import { getFavorites } from '../../apiCalls/apiCalls';
-import { Route, NavLink, Link, Switch } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 export class LoginForm extends Component {
   constructor() {
@@ -82,3 +83,12 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+
+
+LoginForm.propTypes = {
+  error: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
+  login: PropTypes.func.isRequired,
+  handleErrors: PropTypes.func.isRequired,
+  storeFavorites: PropTypes.func.isRequired
+}

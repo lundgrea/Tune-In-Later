@@ -3,10 +3,12 @@ import { handleErrors, storeFavorites } from '../../actions/index'
 import { connect } from 'react-redux'
 import { postFavorite, getFavorites, deleteFavorite } from '../../apiCalls/apiCalls'
 import './Card.css'
+import PropTypes from 'prop-types'
 
 
 
 const Card = props => {
+  console.log(props)
   let actionObject
   const favePost = () => {
     postFavorite(props.user.id, albumToPost)
@@ -44,13 +46,21 @@ const Card = props => {
   }
   
   return (
+<<<<<<< HEAD
     <div className='card-container'>
+=======
+    <>
+>>>>>>> master
       <h2>{props.artist_name}</h2>
       <p>{props.album_name}</p>
       <p>{props.primary_genre_name}</p>
       <img src={props.artwork_url} alt=''></img>
       <img onClick={actionObject} className="card__button-fav" src={favStar} alt=''/>
+<<<<<<< HEAD
     </div>
+=======
+    </>
+>>>>>>> master
   )
 }
 
@@ -64,3 +74,19 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
+
+Card.propTypes = { 
+  album_id: PropTypes.number.isRequired,
+  album_name: PropTypes.string.isRequired,
+  artist_name: PropTypes.string.isRequired,
+  artwork_url: PropTypes.string.isRequired,
+  content_advisory_rating: PropTypes.string,
+  handleErrors: PropTypes.func.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  primary_genre_name: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  storeFavorites: PropTypes.func.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  favorites: PropTypes.array.isRequired
+}
