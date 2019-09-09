@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { postUser } from "../../apiCalls/apiCalls";
 import { handleErrors } from '../../actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
  
 class SignUpForm extends Component {
   constructor(props) {
@@ -70,3 +71,8 @@ export const mapDispatchToProps = dispatch => ({
 });
 
  export default connect(null, mapDispatchToProps)(SignUpForm)
+
+
+ SignUpForm.propTypes = {
+   handleError: PropTypes.func.isRequired
+ }

@@ -3,10 +3,12 @@ import { handleErrors, storeFavorites } from '../../actions/index'
 import { connect } from 'react-redux'
 import { postFavorite, getFavorites, deleteFavorite } from '../../apiCalls/apiCalls'
 import './Card.css'
+import PropTypes from 'prop-types'
 
 
 
 const Card = props => {
+  console.log(props)
   let actionObject
   const favePost = () => {
     postFavorite(props.user.id, albumToPost)
@@ -64,3 +66,19 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
+
+Card.propTypes = { 
+  album_id: PropTypes.number.isRequired,
+  album_name: PropTypes.string.isRequired,
+  artist_name: PropTypes.string.isRequired,
+  artwork_url: PropTypes.string.isRequired,
+  content_advisory_rating: PropTypes.string,
+  handleErrors: PropTypes.func.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  primary_genre_name: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  storeFavorites: PropTypes.func.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  favorites: PropTypes.array.isRequired
+}

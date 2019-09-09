@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 export const AlbumDetails = ({album}) => {
   console.log(album)
@@ -14,4 +15,8 @@ export const AlbumDetails = ({album}) => {
       <Link to='/search'>BACK</Link>
     </div>
   )
+}
+
+AlbumDetails.propTypes = {
+  album: PropTypes.object.isRequired
 }

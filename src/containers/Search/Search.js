@@ -5,6 +5,7 @@ import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
 import { getFavorites } from '../../apiCalls/apiCalls';
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types'
 
 class Search extends Component {
   constructor(){
@@ -73,3 +74,10 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)
+
+Search.propTypes = {
+  albums: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
+  addAlbums: PropTypes.func.isRequired,
+  handleErrors: PropTypes.func.isRequired
+}
