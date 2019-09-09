@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Card from '../Card/Card';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
+import PropTypes from 'prop-types'
 
 
 export class FavoriteContainer extends Component {
@@ -105,3 +106,10 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteContainer)
+
+
+FavoriteContainer.propTypes = {
+  user: PropTypes.object.isRequired,
+  favorites: PropTypes.array.isRequired,
+  toggleFavorite: PropTypes.func.isRequired
+}
