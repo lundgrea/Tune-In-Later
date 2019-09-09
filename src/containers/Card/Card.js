@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
 
 
 const Card = props => {
-  console.log(props)
   let actionObject
   const favePost = () => {
     postFavorite(props.user.id, albumToPost)
@@ -26,24 +25,46 @@ const Card = props => {
   }
 
   const favStar = props.isFavorite ? "https://image.flaticon.com/icons/svg/148/148836.svg" : "https://image.flaticon.com/icons/svg/149/149217.svg"
-  if (!props.user){
+
+  const throwLoggedInError = () => {
     actionObject = () => props.handleErrors('Log In To Save Your Albums to Favorites')
-  } else {
-    actionObject = async () => {
+  }
+
+  const user2Favorites = async () => {
       const userFavorites = await getFavorites(props.user.id)
-      const favoritesObject = userFavorites.find(favorite => favorite.album_id === props.album_id)
-      if (!favoritesObject) {
+      console.log(userFavorites)
+
+     return userFavorites.find(favorite => favorite.album_id === props.album_id)
+  }
+  
+  const toggleUserFavorites = async (userFavorites) => {
+    console.log('userFavorites', userFavorites)
+     if (!userFavorites) {
         props.toggleFavorite(props.album_id)
         favePost()
         const newFavorites = await getFavorites(props.user.id)
-        props.storeFavorites(newFavorites)
+        console.log('newFavorites1', newFavorites)
+        await props.storeFavorites(newFavorites)
       } else {
         deleteFavorite(props.user.id, props.album_id)
         const newFavorites = await getFavorites(props.user.id)
+        console.log('newFavorites2', newFavorites)
         props.storeFavorites(newFavorites)
       }
-    }
   }
+
+const check2Fav = async () => {
+  if (!props.user){
+    return throwLoggedInError()
+  } else {
+    let userFavorites = await user2Favorites()
+    toggleUserFavorites(userFavorites)
+    let x = await getFavorites(props.user.id)
+    await props.storeFavorites(x)
+    props.toggleFavorite(props.album_id)
+      }
+    }
+  
   
   return (
 
@@ -52,12 +73,11 @@ const Card = props => {
       <p>{props.album_name}</p>
       <p>{props.primary_genre_name}</p>
       <img src={props.artwork_url} alt=''></img>
-      <img onClick={actionObject} className="card__button-fav" src={favStar} alt=''/>
+      <img onClick={check2Fav} className="card__button-fav" src={favStar} alt=''/>
     </div>
 
   )
 }
-
 export const mapStateToProps = store => ({
   favorites: store.favorites
 })
@@ -66,6 +86,7 @@ export const mapDispatchToProps = dispatch => ({
   handleErrors: (error) => dispatch(handleErrors(error)),
   storeFavorites: (favorites) => dispatch(storeFavorites(favorites))
 })
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
 
