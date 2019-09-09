@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Tune In Later
 
-In the project directory, you can run:
+Our version of America's Favorite Game Show features: 
 
-### `npm start`
+- Trivia data accessed and utilized with a Fetch API, 
+- Gameplay implemented using JavaScript classes, subclasses, objects and array prototype methods
+- A full testing suite demonstrating the app's test driven development
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The game allows three contestants to enter their names, select categories and point values from the gameboard, and answer questions one-by-one accumulating or squandering away their hard earned prize money. The infamous Daily Double and Final Jeopardy make their apperance within the program as instances of extended subclasses of the traditional Turn and Round classes respectively. The entire application is packaged using WebPack, tested with Mocha and Chai, and styled with SCSS.   
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Set Up
 
-### `npm test`
+### Clone and Install Backend
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone down this [backend repository](https://github.com/turingschool-examples/favorites-tracker-api) and follow instructions within to install dependencies and configure postgresSQL.
 
-### `npm run build`
+Install the application's dependencies from within the cloned directory:
+```bash
+npm install
+```
+Then launch the backend:
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Clone and Install UI
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Clone down the UI repository.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the application's dependencies from within the cloned directory:
+```bash
+npm install
+```
 
-### `npm run eject`
+Then launch the application within the browser:
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Launch API & UI
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+With the backend server running on localhost:3001 open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Application components and routes have been tested using various unit testing techniques including snapshots, class method and functional testing. 
+```bash
+npm test
+```
 
-## Learn More
+## Developers
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ - Christopher Lane [@CLLane](https://github.com/CLLane)
+ - Aidan McKay [@JellyBeans1312](hhttps://github.com/JellyBeans1312)
+ - Alyssa Lundgren [@lundgrea](https://github.com/lundgrea)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshots
+![]()
+![]()
+![]()
+![]()
