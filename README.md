@@ -1,4 +1,3 @@
-
 # Tune In Later
 
 Tune In Later, built as a three person team over the course of seven days utilizing an agile workflow, allows users to search the iTunes API for their favorite musical albums from within the application and, once logged in, save their favorites to their account. New users are encouraged to create an account in order to join the fun and save their favorites. The application bootstrapped with Create React App utilizes React Router for page navigation, Redux to assist in data management, PropTypes to ensure the correct data types are passed within the program, and a testing suite utilizing Enzyme and Jest. Tests cover UI changes, event simulation, async fetch calls, React state changes, and Redux store updates. 
