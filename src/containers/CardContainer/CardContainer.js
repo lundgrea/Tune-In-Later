@@ -3,7 +3,7 @@ import Card from '../../containers/Card/Card';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
-
+import PropTypes from 'prop-types'
 
 const CardContainer = ({albums, toggleFavorite, user}) => {
     let cards = albums.map(album => {
@@ -42,3 +42,10 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer)
+
+
+CardContainer.propTypes = {
+  albums: PropTypes.array.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
+}
