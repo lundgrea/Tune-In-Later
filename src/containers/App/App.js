@@ -10,11 +10,12 @@ import { logout, storeFavorites } from '../../actions';
 import { connect } from 'react-redux';
 import  FavoriteContainer from "../Favorites/FavoriteContainer";
 import { AlbumDetails } from "../../Components/AlbumDetails/AlbumDetails";
+import PropTypes from 'prop-types'
 
 
 
 
-const App = ({ logout, error, user, favorites, storeFavorites, albums}) => {
+const App = ({ logout, error, user, storeFavorites, albums}) => {
   const sendFavorites = async () => {
     const newFavorites = await getFavorites(user.id)
     storeFavorites(newFavorites)
@@ -67,7 +68,6 @@ export const mapStateToProps = store => ({
   albums: store.albums,
   error: store.error,
   user: store.user,
-  favorites: store.favorites
 });
 
 
@@ -77,3 +77,12 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+App.propTypes = {
+  albums: PropTypes.array.isRequired,
+  error: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  storeFavorites: PropTypes.func.isRequired
+}
