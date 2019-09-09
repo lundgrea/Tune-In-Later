@@ -57,7 +57,7 @@ npm test
 ## Developers
 
  - Christopher Lane [@CLLane](https://github.com/CLLane)
- - Aidan McKay [@JellyBeans1312](hhttps://github.com/JellyBeans1312)
+ - Aidan McKay [@JellyBeans1312](https://github.com/JellyBeans1312)
  - Alyssa Lundgren [@lundgrea](https://github.com/lundgrea)
 
 ## Screenshots
