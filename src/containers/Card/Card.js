@@ -46,21 +46,15 @@ const Card = props => {
   }
   
   return (
-<<<<<<< HEAD
-    <div className='card-container'>
-=======
-    <>
->>>>>>> master
+
+    <div className='card'>
       <h2>{props.artist_name}</h2>
       <p>{props.album_name}</p>
       <p>{props.primary_genre_name}</p>
       <img src={props.artwork_url} alt=''></img>
       <img onClick={actionObject} className="card__button-fav" src={favStar} alt=''/>
-<<<<<<< HEAD
     </div>
-=======
-    </>
->>>>>>> master
+
   )
 }
 

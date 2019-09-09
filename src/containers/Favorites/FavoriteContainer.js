@@ -83,14 +83,22 @@ export class FavoriteContainer extends Component {
         <fieldset>
           <h3>Filter By Genre</h3>
           <label htmlFor="show all">Show All</label>
-          <input type="radio" name="genre" value="show all" placeholder="radio buttons" onClick={this.clearInputs}></input>
+          <input
+            type="radio"
+            name="genre"
+            value="show all"
+            placeholder="radio buttons"
+            onClick={this.clearInputs}
+          ></input>
           {this.populateGenreButtons()}
         </fieldset>
       </div>
+      <div className="favorites-container">
         {!this.state.filteredAlbums.length && this.generateAlbums()}
         {this.state.filteredAlbums.length && this.genreFilter()}
+      </div>
     </section>
-    )
+  );
   }
 }
 
