@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tune In Later
 
-## Available Scripts
+Tune In Later, built as a three person team over the course of seven days utilizing an agile workflow, allows users to search the iTunes API for their favorite musical albums from within the application and, once logged in, save their favorites to their account. New users are encouraged to create an account in order to join the fun and save their favorites. The application bootstrapped with Create React App utilizes React Router for page navigation, Redux to assist in data management, PropTypes to ensure the correct data types are passed within the program, and a testing suite utilizing Enzyme and Jest. Tests cover UI changes, event simulation, async fetch calls, React state changes, and Redux store updates. 
 
-In the project directory, you can run:
+In addition to the easy-to-navigate front end UI the application makes fetch calls to a local backend allowing existing users to login, new users to create an account, save their favorites, and delete their favorites from the associated backend database utilizing POST and DELETE network requests. The asyncronous JavaScript is managed utilizing async/await alongside try/catch for error handling. 
 
-### `npm start`
+## Technologies Utilized
+ - React
+ - React Router
+ - Redux
+ - iTunes API
+ - postgresSQL
+ - Fetch (GET/POST/DELETE) local server network requests
+ - PropTypes
+ - CSS
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Set Up
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Clone and Install Backend
 
-### `npm test`
+Clone down this [backend repository](https://github.com/turingschool-examples/favorites-tracker-api) and follow instructions within to install dependencies and configure postgresSQL.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install the application's dependencies from within the cloned directory:
+```bash
+npm install
+```
+Then launch the backend:
+```bash
+npm start
+```
 
-### `npm run build`
+### Clone and Install UI
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone down the UI repository.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Install the application's dependencies from within the cloned directory:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then launch the application within the browser:
+```bash
+npm start
+```
 
-### `npm run eject`
+### Launch API & UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+With the backend server running on localhost:3001 open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Application components and routes have been tested using various unit testing techniques including snapshots, class method and functional testing. 
+```bash
+npm test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Developers
 
-## Learn More
+ - Christopher Lane [@CLLane](https://github.com/CLLane)
+ - Aidan McKay [@JellyBeans1312](hhttps://github.com/JellyBeans1312)
+ - Alyssa Lundgren [@lundgrea](https://github.com/lundgrea)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshots
+![]()
+![]()
+![]()
+![]()
