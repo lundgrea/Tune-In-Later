@@ -70,7 +70,8 @@ export class FavoriteContainer extends Component {
       })
   }
 
-  clearInput = () => {
+  clearInputs = () => {
+    this.generateAlbums()
     this.setState({filteredAlbums: [], filterButton: ''})
   } 
 
