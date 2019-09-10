@@ -1,6 +1,7 @@
 import React from 'react';
 import  { shallow } from 'enzyme';
 import { Card, mapDispatchToProps, mapStateToProps } from './Card';
+import { handleErrors, storeFavorites } from '../../actions';
 
 describe('Card', () => {
   let wrapper;
@@ -49,7 +50,27 @@ describe('Card', () => {
       }
       const mappedProps = mapStateToProps(mockState)
       expect(mappedProps).toEqual(expected)
-    })
+    });
   });
+
+  describe('mapDispatchToProps', () => {
+    it('calls dispatch with a handleErrors action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = handleErrors('you suck');
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.handleErrors('you suck');
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('calls dispatch with a storeFavorites action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = storeFavorites(mockFavorites);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.storeFavorites(mockFavorites)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+  })
 });
 
