@@ -52,7 +52,7 @@ export const Card = props => {
     let userFavorites = await user2Favorites()
     toggleUserFavorites(userFavorites)
       }
-    
+  }
   
   return (
     <div className='card'>
@@ -65,7 +65,7 @@ export const Card = props => {
 
   )
   }
-}
+
 export const mapStateToProps = store => ({
   favorites: store.favorites
 })

@@ -5,11 +5,8 @@ import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
-<<<<<<< HEAD
 import './Search.css'
-=======
 import { cleanAlbums } from '../../cleanData/cleaner' 
->>>>>>> master
 
 export class Search extends Component {
   constructor(){
@@ -39,13 +36,9 @@ export class Search extends Component {
 
   render() {
       return (
-<<<<<<< HEAD
-        <form className="search-form-inner"> 
-=======
         <div>
-          {this.state.error}
-        <form>
->>>>>>> master
+        {this.state.error}
+        <form className="search-form-inner"> 
           <input
             className="search-input"
             type="text"
