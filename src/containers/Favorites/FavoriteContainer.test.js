@@ -33,4 +33,28 @@ describe('Favorite Container ', () => {
     wrapper.find('input').at(1).simulate('click', mockEvent)
     expect(wrapper.state('filteredAlbums')).toEqual(mockFavorites)
   });
+  describe('mapStateToProps', () => {
+    it('should return an object with a user object', () => {
+      const mockState = {
+        user: mockUser
+      };
+      const expected = {
+        user: mockUser
+      }
+
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
+
+    it('should return an array of favorite album objects', () => {
+      const mockState = {
+        favorites: mockAlbums
+      }
+      const expected = {
+        favorites: mockAlbums
+      }
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
+  });
 });
