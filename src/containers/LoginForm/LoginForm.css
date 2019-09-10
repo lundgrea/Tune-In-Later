@@ -7,10 +7,20 @@
 .login-form {
   max-height: 30vh;
   width: 20%;
-  background-color: #F2B54a;
+  /* background-color: #F2B54a; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
  }
+
+ nav {
+  max-height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+  background-color: white;
+}

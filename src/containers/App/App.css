@@ -80,13 +80,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* justify-content: flex-end; */
   padding-right: 30px;
   background-color: white;
-    /* margin-left: 1%; */
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    /* padding-right: 30px; */    
 }
 
 

@@ -61,24 +61,24 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
           exact path="/sign-up"
           component={SignUpForm} 
           />
-      <div className="favorites-container">
-        <Route 
-        exact path="/my-collection" 
-        component = {FavoriteContainer} 
-        />
-        <Route 
-        exact path="/search"
-        component= {CardContainer}
-        />
-        <Route exact path="/:id" render={({match}) => {
-          const {id} = match.params;
-          const description = albums.find(album => {
-            return album.album_id === parseInt(id)
-          })
-          return description && <AlbumDetails album={description} />
-        }}
-        />
-      </div>
+          <div className="favorites-container">
+            <Route 
+            exact path="/my-collection" 
+            component = {FavoriteContainer} 
+            />
+            <Route 
+            exact path="/search"
+            component= {CardContainer}
+            />
+            <Route exact path="/:id" render={({match}) => {
+              const {id} = match.params;
+              const description = albums.find(album => {
+              return album.album_id === parseInt(id)
+              })
+            return description && <AlbumDetails album={description} />
+            }}
+            />
+          </div>
         </section>
       </article>
     </section>
