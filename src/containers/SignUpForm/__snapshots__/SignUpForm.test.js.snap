@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm should match the snapshot with all of the correct information passed in 1`] = `
+<article
+  className="signin-form-container"
+>
+  <form
+    className="signin-form"
+    onSubmit={[Function]}
+  >
+    <h3>
+      Create New Account
+    </h3>
+    <input
+      className="signup-input"
+      name="name"
+      onChange={[Function]}
+      placeholder="Joe Don"
+      type="text"
+      value=""
+    />
+    <input
+      className="signup-input"
+      name="email"
+      onChange={[Function]}
+      placeholder="example@example.com"
+      type="text"
+      value=""
+    />
+    <input
+      className="signup-input"
+      name="password"
+      onChange={[Function]}
+      placeholder="password"
+      type="password"
+      value=""
+    />
+    <button
+      className="signup-input"
+    >
+      Create Account
+    </button>
+  </form>
+</article>
+`;
