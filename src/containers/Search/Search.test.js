@@ -17,6 +17,7 @@ describe('Search', () => {
     {album_name: 'robots', album_id:123456},
   ]
   let mockEvent
+  const mockHandleErrors = jest.fn()
 
   beforeAll(() => {
     getAlbums.mockImplementation(() => 'mirrorland');
@@ -29,7 +30,7 @@ describe('Search', () => {
       albums={mockAlbums}
       user={mockUser}
       addAlbum={jest.fn()}
-      handleErrors={jest.fn()}
+      handleErrors={mockHandleErrors}
       />
     )
   });
@@ -45,7 +46,6 @@ describe('Search', () => {
     expect(wrapper.state('search')).toEqual('earthgang')
   });
 
-  
   it('sets error in state if the fetch fails', async () => {
     getAlbums.mockImplementationOnce(() => {
       throw new Error('Please Try Again')

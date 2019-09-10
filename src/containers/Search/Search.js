@@ -24,13 +24,13 @@ export class Search extends Component {
     e.preventDefault()
     try {
       const allAlbums = await getAlbums(this.state.search)
-      const cleanedAlbums = await cleanAlbums(allAlbums.result)
+      const cleanedAlbums = cleanAlbums(allAlbums.results)
       this.props.addAlbums(cleanedAlbums)
-      this.setState({ search: ''})
-      this.props.handleErrors('')
     } catch(error) {
       this.setState({error: 'Please Try Again'})
     }
+    this.setState({ search: ''})
+    this.props.handleErrors('')
   }
 
   render() {
