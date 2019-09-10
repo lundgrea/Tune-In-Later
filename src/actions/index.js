@@ -12,7 +12,7 @@ export const logout = () => ({
   type: "LOGOUT"
 });
 
-export const toggleFavorite = id => ({
+export const toggleFavorite = (id) => ({
   type: "TOGGLE_FAVORITE",
   id
 });
@@ -32,7 +32,7 @@ export const storeFavorites = albums => ({
   albums
 });
 
-export const deleteFavorite = albumId => ({
-  type: "DELETE_FAVORITE",
-  albumId
-});
+// export const deleteFavorite = albumId => ({
+//   type: "DELETE_FAVORITE",
+//   albumId
+// });
