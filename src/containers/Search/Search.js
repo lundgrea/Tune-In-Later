@@ -6,6 +6,7 @@ import { handleErrors } from '../../actions/index';
 import { getFavorites } from '../../apiCalls/apiCalls';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+import './Search.css'
 
 export class Search extends Component {
   constructor(){
@@ -48,15 +49,16 @@ export class Search extends Component {
 
   render() {
       return (
-        <form>
+        <form className="search-form-inner"> 
           <input
+            className="search-input"
             type="text"
             placeholder="Input Artist Name To Search"
             value={this.state.search}
             onChange={this.handleChange}
           />
           <Link to='/'>
-            <button onClick={this.fetchAlbums}>SEARCH</button>
+            <button className="search-button" onClick={this.fetchAlbums}>search</button>
           </Link>
         </form>
       )

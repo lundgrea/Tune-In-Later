@@ -99,17 +99,10 @@ nav {
 }
 
 
-
-
-
-
-/* .home-nav, .login-ul { */
-  /* min-height: 25vh; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly; */
-/* } */
+input {
+  font-size: 16px;
+  padding: 5px 5px 5px 5px;
+}
 
 .search-form {
   min-height: 100vh;
@@ -125,6 +118,9 @@ nav {
 .search-form-container{
   display: flex;
   flex-direction: column; 
+  align-items: center;
+  width: 80%;
+  /* width: 325px; */
 }
 
 main {

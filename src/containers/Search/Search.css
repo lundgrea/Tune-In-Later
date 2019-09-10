@@ -1,0 +1,22 @@
+.search-form-inner{
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    align-items: center;
+  }
+
+
+  .search-button {
+
+    width: 313.5px;   
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+  }

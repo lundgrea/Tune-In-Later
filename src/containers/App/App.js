@@ -57,13 +57,10 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
           exact path="/login" 
           component={LoginForm} 
           />
-        </section>
-        <section className="signup-form-container">
           <Route 
           exact path="/sign-up"
           component={SignUpForm} 
           />
-        </section>
       <div className="favorites-container">
         <Route 
         exact path="/my-collection" 
@@ -82,6 +79,7 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
         }}
         />
       </div>
+        </section>
       </article>
     </section>
   </main>
