@@ -51,9 +51,6 @@ const Card = props => {
   } else {
     let userFavorites = await user2Favorites()
     toggleUserFavorites(userFavorites)
-    // let x = await getFavorites(props.user.id)
-    // props.storeFavorites(x)
-    // props.toggleFavorite(props.album_id)
       }
     }
   
