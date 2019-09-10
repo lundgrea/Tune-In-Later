@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { postUser } from "../../apiCalls/apiCalls";
-import { handleErrors } from '../../actions';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
-import './SignUpForm.css'
+import { handleErrors } from "../../actions";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import "./SignUpForm.css"
  
 export class SignUpForm extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export class SignUpForm extends Component {
     e.preventDefault();
     const user = await postUser(this.state);
     if(user.error) {
-      this.props.handleError('Email has already been used')
+      this.props.handleError("Email has already been used")
     } else {
       this.setState({
         name: '',
@@ -40,29 +40,29 @@ export class SignUpForm extends Component {
   render(){
     return (
       <article className="signin-form-container">
-      <form className="signin-form"onSubmit={this.createAccount}>
+      <form className="signin-form" onSubmit={this.createAccount}>
         <h3>Create New Account</h3>
         <input 
-        type='text' 
+        type="text"
         value={this.state.name} 
-        placeholder='Joe Don' 
-        name='name' 
+        placeholder="Joe Don"
+        name="name"
         onChange={this.handleInputChange} 
         className="signup-input"
         ></input>
         <input 
-        type='text' 
+        type="text"
         value={this.state.email} 
-        placeholder='example@example.com' 
-        name='email' 
+        placeholder="example@example.com"
+        name="email"
         onChange={this.handleInputChange} 
         className="signup-input"
         ></input>
         <input 
-        type='password' 
+        type="password" 
         value={this.state.password} 
-        placeholder='password' 
-        name='password' 
+        placeholder="password"
+        name="password" 
         onChange={this.handleInputChange} 
         className="signup-input"
         ></input>

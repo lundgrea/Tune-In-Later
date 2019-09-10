@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match snapshot 1`] = `
+<div
+  className="card"
+>
+  <h2>
+    EarthGang
+  </h2>
+  <p>
+    MirrorLand
+  </p>
+  <p>
+    Rap
+  </p>
+  <img
+    alt=""
+    src="asdf"
+  />
+  <img
+    alt=""
+    className="card__button-fav"
+    onClick={[Function]}
+    src="https://image.flaticon.com/icons/svg/148/148836.svg"
+  />
+</div>
+`;

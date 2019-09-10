@@ -50,7 +50,7 @@ export const Card = props => {
   } else {
     let userFavorites = await user2Favorites()
     toggleUserFavorites(userFavorites)
-      }
+    }
   }
   
   return (

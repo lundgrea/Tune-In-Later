@@ -2,42 +2,23 @@
 
 exports[`App should map the snapshot with all the props passed in correctly 1`] = `
 <main>
-  <form
-    className="search-form"
-  >
-    <h1>
-      TUNE-IN LATER
-    </h1>
-    <NavLink
-      exact={true}
-      to="/search"
-    >
-      Search
-    </NavLink>
-    <NavLink
-      exact={true}
-      onClick={[MockFunction]}
-      to="/"
-    >
-      LOGOUT
-    </NavLink>
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Search)",
-          "type": [Function],
-        }
-      }
-      exact={true}
-      path="/search"
-    />
-  </form>
   <section>
     <nav>
-      <p>
+      <div
+        className="logo-lockup"
+      >
+        <img
+          alt="logo"
+          className="logo"
+          src="https://image.flaticon.com/icons/svg/126/126508.svg"
+        />
+        <h1>
+          TUNE-IN LATER
+        </h1>
+      </div>
+      <p
+        className="error"
+      >
         error
       </p>
       <div
@@ -47,6 +28,7 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
         className="home-nav"
       >
         <NavLink
+          className="logged-in-header-nav"
           exact={true}
           onClick={[Function]}
           to="/my-collection"
@@ -54,6 +36,7 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
           Favorites
         </NavLink>
         <NavLink
+          className="logged-in-header-nav"
           exact={true}
           to="/"
         >
@@ -61,71 +44,114 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
         </NavLink>
       </div>
     </nav>
-    <Route
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(LoginForm)",
-          "type": [Function],
-        }
-      }
-      exact={true}
-      path="/login"
-    />
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(SignUpForm)",
-          "type": [Function],
-        }
-      }
-      exact={true}
-      path="/sign-up"
-    />
-    <div
-      className="favorites-container"
+    <article
+      className="main-container"
     >
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(FavoriteContainer)",
-            "type": [Function],
+      <article
+        className="search-form"
+      >
+        <div
+          className="search-form-container"
+        >
+          <NavLink
+            className="a-search"
+            exact={true}
+            to="/search"
+          >
+            search tunes
+          </NavLink>
+          <NavLink
+            exact={true}
+            onClick={[MockFunction]}
+            to="/"
+          >
+            LOGOUT
+          </NavLink>
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(Search)",
+                "type": [Function],
+              }
+            }
+            exact={true}
+            path="/search"
+          />
+        </div>
+      </article>
+      <section
+        className="login-form-container"
+      >
+        <Route
+          exact={true}
+          path="/"
+        />
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(LoginForm)",
+              "type": [Function],
+            }
           }
-        }
-        exact={true}
-        path="/my-collection"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(CardContainer)",
-            "type": [Function],
+          exact={true}
+          path="/login"
+        />
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(SignUpForm)",
+              "type": [Function],
+            }
           }
-        }
-        exact={true}
-        path="/search"
-      />
-      <Route
-        exact={true}
-        path="/:id"
-        render={[Function]}
-      />
-    </div>
+          exact={true}
+          path="/sign-up"
+        />
+        <div
+          className="favorites-container"
+        >
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(FavoriteContainer)",
+                "type": [Function],
+              }
+            }
+            exact={true}
+            path="/my-collection"
+          />
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(CardContainer)",
+                "type": [Function],
+              }
+            }
+            exact={true}
+            path="/search"
+          />
+          <Route
+            exact={true}
+            path="/:id"
+            render={[Function]}
+          />
+        </div>
+      </section>
+    </article>
   </section>
 </main>
 `;
