@@ -3,6 +3,7 @@ import { postUser } from "../../apiCalls/apiCalls";
 import { handleErrors } from '../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
+import './SignUpForm.css'
  
 export class SignUpForm extends Component {
   constructor(props) {
@@ -38,13 +39,16 @@ export class SignUpForm extends Component {
 
   render(){
     return (
-      <form onSubmit={this.createAccount}>
+      <article className="signin-form-container">
+      <form className="signin-form"onSubmit={this.createAccount}>
+        <h3>Create New Account</h3>
         <input 
         type='text' 
         value={this.state.name} 
         placeholder='Joe Don' 
         name='name' 
         onChange={this.handleInputChange} 
+        className="signup-input"
         ></input>
         <input 
         type='text' 
@@ -52,16 +56,19 @@ export class SignUpForm extends Component {
         placeholder='example@example.com' 
         name='email' 
         onChange={this.handleInputChange} 
+        className="signup-input"
         ></input>
         <input 
-        type='text' 
+        type='password' 
         value={this.state.password} 
         placeholder='password' 
         name='password' 
         onChange={this.handleInputChange} 
+        className="signup-input"
         ></input>
-        <button>Create Account</button>
+        <button className="signup-input">Create Account</button>
       </form>
+      </article>
     )
   }
 }

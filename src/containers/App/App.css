@@ -1,6 +1,4 @@
 @font-face {
-  /* font-family: "Lato"; */
-  /* src: url("https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap">); */
   font-family: "Source Sans Pro";
   src: url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap")
 }
@@ -12,12 +10,6 @@ body {
   height: 100vh;
   width: 100%;
   margin: 0;
-  /* display: grid;
-  grid-template-areas: 
-    "header header header"
-    "aside main main";
-  grid-template-columns: 1fr; */
-  /* grid-template-rows: 20% auto; */
 }
 
 .login-div {
@@ -84,15 +76,10 @@ nav {
   background-color: white;
 }
 
-
-
-
-
 .main-container {
   display: flex;
   background-color: #23305E;
 }
-
 
 input {
   font-size: 16px;
@@ -136,3 +123,8 @@ section {
   flex-wrap: wrap;
 }
 
+.login-form-container{
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
