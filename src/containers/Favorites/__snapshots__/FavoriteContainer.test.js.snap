@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorite Container  should match snapshot 1`] = `
+<section>
+  <div>
+    <fieldset>
+      <h3>
+        Filter By Genre
+      </h3>
+      <label
+        htmlFor="show all"
+      >
+        Show All
+      </label>
+      <input
+        name="genre"
+        onClick={[Function]}
+        placeholder="radio buttons"
+        type="radio"
+        value="show all"
+      />
+      <label
+        htmlFor="rap"
+      >
+        rap
+      </label>
+      <input
+        name="genre"
+        onClick={[Function]}
+        placeholder="radio buttons"
+        type="radio"
+        value="rap"
+      />
+    </fieldset>
+  </div>
+  <div
+    className="favorites-container"
+  >
+    <Connect(Card)
+      album_id={12345678}
+      album_name="mirrorland"
+      isFavorite={true}
+      primary_genre_name="rap"
+      toggleFavorite={[MockFunction]}
+      user={
+        Object {
+          "email": "aidanmckay2000@gmail.com",
+          "id": 1,
+          "name": "aidan",
+        }
+      }
+    />
+  </div>
+</section>
+`;
