@@ -61,5 +61,16 @@ describe('CardContainer', () => {
       expect(mappedProps).toEqual(expected)
     })
   });
+
+  describe('mapDispatchToProps', () => {
+    it('calls dispatch with an toggleFavorite action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = toggleFavorite(1);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.toggleFavorite(1);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 })
 
