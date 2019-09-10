@@ -60,7 +60,7 @@ export const postFavorite = async (userId, newFavorite) => {
     const result = await response.json();
     return result;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('There was a problem adding your favorite');
   }
 };
 
