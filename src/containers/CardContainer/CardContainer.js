@@ -29,14 +29,14 @@ export const CardContainer = ({albums, toggleFavorite, user}) => {
   )
 }
 
-const mapStateToProps = store => ({
+export const mapStateToProps = store => ({
   albums: store.albums,
   user: store.user,
   favorites: store.favorites
 })
 
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   toggleFavorite: (id) => dispatch(toggleFavorite(id))
 })
 

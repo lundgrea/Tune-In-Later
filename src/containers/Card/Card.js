@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 
 
-const Card = props => {
+export const Card = props => {
  
   const albumToPost = {
     album_id: props.album_id,
