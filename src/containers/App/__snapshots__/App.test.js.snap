@@ -16,19 +16,16 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
           TUNE-IN LATER
         </h1>
       </div>
-      <p
-        className="error"
-      >
-        error
-      </p>
       <div
         className="login-div"
-      />
-      <div
-        className="home-nav"
       >
+        <p
+          className="error"
+        >
+          error
+        </p>
         <NavLink
-          className="logged-in-header-nav"
+          className="nav-links"
           exact={true}
           onClick={[Function]}
           to="/my-collection"
@@ -36,7 +33,7 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
           Favorites
         </NavLink>
         <NavLink
-          className="logged-in-header-nav"
+          className="nav-links"
           exact={true}
           to="/"
         >
@@ -58,14 +55,7 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
             exact={true}
             to="/search"
           >
-            search tunes
-          </NavLink>
-          <NavLink
-            exact={true}
-            onClick={[MockFunction]}
-            to="/"
-          >
-            LOGOUT
+            Search Tunes
           </NavLink>
           <Route
             component={
@@ -80,7 +70,19 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
             exact={true}
             path="/search"
           />
+          <h3>
+            Welcome 
+            lola
+          </h3>
         </div>
+        <NavLink
+          className="logout-link"
+          exact={true}
+          onClick={[MockFunction]}
+          to="/"
+        >
+          LOGOUT
+        </NavLink>
       </article>
       <section
         className="login-form-container"

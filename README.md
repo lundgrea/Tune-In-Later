@@ -64,4 +64,3 @@ npm test
 ![](Images/homepage.png)
 ![](Images/favorites.png)
 ![](Images/filter.png)
-
