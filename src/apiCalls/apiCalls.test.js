@@ -270,9 +270,33 @@ describe('getFavorites', () => {
 
 
 describe('deleteFavorite', () => {
-  let mockResponse
-
-  it('should', () =>{
-
+  window.fetch = jest.fn().mockImplementation(() => {
+    return Promise.resolve({
+      ok: true
+    })
   })
+
+  it('should be called with correct params', () =>{
+    deleteFavorite(1, 1)
+    expect(window.fetch).toHaveBeenCalledWith("http://localhost:3001/api/v1/users/1/albumfavorites/1", {method: "DELETE"});
+  });
+  
+  it('should return a successful response', () =>{
+    expect(deleteFavorite()).resolves.toEqual(true);
+  });
+
+  it('should return an error', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    })
+    expect(deleteFavorite()).rejects.toEqual(Error('Could not delete favorite'))
+  });
+  it('should return an error if the promise rejects', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('Could not delete favorite'))
+    })
+    expect(getFavorites()).rejects.toEqual(Error('Could not delete favorite'))
+    })
 })
