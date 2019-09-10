@@ -17,7 +17,10 @@ import PropTypes from 'prop-types'
 
 export const App = ({ logout, error, user, storeFavorites, albums}) => {
   const sendFavorites = async () => {
-    const newFavorites = await getFavorites(user.id)
+    const something = await getFavorites(user.id)
+    const newFavorites = something.map(album => ({
+      ...album, isFavorite: true
+    }))
     storeFavorites(newFavorites)
   } 
   return (
@@ -32,6 +35,7 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
       </form>
       <section>
       <nav>
+        <p>{error}</p>
         <div className='login-div'>
           {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
           {!user && <Link  to="/login"><button>Login Page</button></Link>}

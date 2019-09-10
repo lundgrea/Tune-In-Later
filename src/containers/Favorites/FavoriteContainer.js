@@ -94,8 +94,8 @@ export class FavoriteContainer extends Component {
         </fieldset>
       </div>
       <div className="favorites-container">
-        {!this.state.filteredAlbums.length && this.generateAlbums()}
-        {this.state.filteredAlbums.length && this.genreFilter()}
+        {this.state.filteredAlbums.length === 0 && this.generateAlbums()}
+        {this.state.filteredAlbums.length > 0 && this.genreFilter()}
       </div>
     </section>
   );
