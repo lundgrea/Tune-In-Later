@@ -6,11 +6,11 @@ import { Route, NavLink, Link } from "react-router-dom";
 import CardContainer from "../CardContainer/CardContainer";
 import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
-import { logout, storeFavorites } from '../../actions';
-import { connect } from 'react-redux';
+import { logout, storeFavorites } from "../../actions";
+import { connect } from "react-redux";
 import  FavoriteContainer from "../Favorites/FavoriteContainer";
 import { AlbumDetails } from "../../Components/AlbumDetails/AlbumDetails";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
 
 
@@ -25,54 +25,64 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
   } 
   return (
   <main>
-    <form className='search-form'>
-      <h1>TUNE-IN LATER</h1>
-        <NavLink exact to='/search'>Search</NavLink>
-        {user && <NavLink exact to='/' onClick={logout}>LOGOUT</NavLink>}
-      <Route 
-      exact path='/search' 
-      component={Search}/>
-      </form>
-      <section>
+    <section>
       <nav>
-        <p>{error}</p>
-        <div className='login-div'>
-          {!user && <Link  to='/sign-up'><button>Sign Up Page</button></Link>}
-          {!user && <Link  to="/login"><button>Login Page</button></Link>}
+        <div className="logo-lockup">
+          <img className="logo" src="https://image.flaticon.com/icons/svg/126/126508.svg"></img>
+          <h1>TUNE-IN LATER</h1>
+        </div>
+        <p className="error">{error}</p>
+        <div className="login-div">
+          {!user && <Link  to="/sign-up" className="nav-links">Sign Up Page</Link>}
+          {!user && <Link  to="/login" className="nav-links">Login Page</Link>}
         </div>
         <div className='home-nav'>
-          {user && <NavLink exact to='/my-collection' onClick={sendFavorites}>Favorites</NavLink>}
-          {user && <NavLink exact to='/'>Home</NavLink>}
+          {user && <NavLink exact to="/my-collection" onClick={sendFavorites}>Favorites</NavLink>}
+          {user && <NavLink exact to="/">Home</NavLink>}
         </div>
       </nav>
-      <Route exact path="/" />
-      <Route 
-      exact path="/login" 
-      component={LoginForm} 
-      />
-      <Route 
-      exact path='/sign-up' 
-      component={SignUpForm} 
-      />
-      <div className='favorites-container'>
-      <Route 
-      exact path='/my-collection' 
-      component = {FavoriteContainer} 
-      />
-      <Route 
-      exact path='/search'
-      component= {CardContainer}
-      />
-      <Route exact path='/:id' render={({match}) => {
-        const {id} = match.params;
-        const description = albums.find(album => {
-          return album.album_id === parseInt(id)
-        })
-        return description && <AlbumDetails album={description} />
-      }}/>
-      </div>
+      <article>
+        <form className="search-form">
+          <NavLink exact to="/search" className="a-search">Search</NavLink>
+          {user && <NavLink exact to="/" onClick={logout}>LOGOUT</NavLink>}
+          <Route 
+          exact path="/search" 
+          component={Search}/>
+        </form>
+      </article>
+      <section className="login-form-container">
+        <Route exact path="/" />
+        <Route 
+        exact path="/login" 
+        component={LoginForm} 
+        />
       </section>
-    </main>
+      <section className="signup-form-container">
+        <Route 
+        exact path="/sign-up"
+        component={SignUpForm} 
+        />
+      </section>
+      <div className="favorites-container">
+        <Route 
+        exact path="/my-collection" 
+        component = {FavoriteContainer} 
+        />
+        <Route 
+        exact path="/search"
+        component= {CardContainer}
+        />
+        <Route exact path="/:id" render={({match}) => {
+          const {id} = match.params;
+          const description = albums.find(album => {
+            return album.album_id === parseInt(id)
+          })
+          return description && <AlbumDetails album={description} />
+          }}
+        />
+      </div>
+    </section>
+  </main>
   );
 };
 

@@ -1,14 +1,66 @@
+@font-face {
+  /* font-family: "Lato"; */
+  /* src: url("https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap">); */
+  font-family: "Source Sans Pro";
+  src: url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap")
+}
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  /* display: grid;
+  grid-template-areas: 
+    "header header header"
+    "aside main main";
+  grid-template-columns: 1fr; */
+  /* grid-template-rows: 20% auto; */
 }
 
-.App-header {
+/* ul { 
+  list-style-type: none; 
+  /* display: inline; */
+
+.login-div{
+  margin: 30px 10px 10px 300px;
+}
+
+li:hover {
+  background-color: FFC602;
+}
+
+
+.nav-links {
+  font-size: 20px;
+  display: inline;
+  color: #a8d0e6;
+  float: right;
+  margin: 70px 20px 70px 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.a-search{
+  font-size: 50px;
+  color: #a8d0e6;
+}
+
+a:focus {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+
+header{
+  background-color: white
+}
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -17,46 +69,74 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.logo {
+  width: 100px;
+  color: #F2B54a
+}
+
+.logo-lockup {
+  display: flex;
+  margin: 10px 10px 10px 10px;
+}
+
+h1 {
+  color: #FFC602;
+  font-size: 60px;
+  margin: 62px 10px 10px 30px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 nav {
   max-height: 30vh;
-  width: 95%;
-  margin-left: 1%;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  /* align-items: center; */
+  /* justify-content: flex-end; */
   padding-right: 30px;
-  background-color: blue;
-  border-radius: 10px;
+  background-color: white;
+    /* margin-left: 1%; */
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    /* padding-right: 30px; */    
 }
 
-.home-nav, .login-div {
-  min-height: 25vh;
-  display: flex;
+
+/* background-color: #23305E; */
+
+
+
+
+
+
+
+
+/* .home-nav, .login-ul { */
+  /* min-height: 25vh; */
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-}
+  justify-content: space-evenly; */
+/* } */
 
 .search-form {
   min-height: 100vh;
-  width: 25%;
-  background-color: yellow;
-  border-radius: 10px;
+  width: 27%;
+  background-color: #39424E;
+  /* border-radius: 10px; */
 }
 
 .login-form {
