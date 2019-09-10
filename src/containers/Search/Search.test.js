@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Search } from './Search';
+import { Search, mapStateToProps, mapDispatchToProps } from './Search';
 
 describe('Search', () => {
   let wrapper;
@@ -18,7 +18,7 @@ describe('Search', () => {
       albums={mockAlbums}
       user={mockUser}
       addAlbum={jest.fn()}
-      handleError={jest.fn()}
+      handleErrors={jest.fn()}
       />
     )
   });
@@ -35,8 +35,39 @@ describe('Search', () => {
   });
 
   it('should fetch albums', () => {
-    const mockEvent = {}
+    const mockEvent = { preventDefault: jest.fn() }
     wrapper.find('button').simulate('click', mockEvent)
-    
   });
+
+  it('should reset state to an empty string', () => {
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.find('button').simulate('click', mockEvent)
+    expect(wrapper.state('search')).toEqual('')
+  });
+
+  describe('mapStateToProps', () => {
+    it('should return an object with the albums array', () => {
+      const mockState = {
+        albums: [{ album_name: 'mirrorland', id: 1 }],
+      };
+      const expected = {
+        albums: [{ album_name: 'mirrorland', id: 1 }],
+      };
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+
+    it('should return an object with a user object', () => {
+      const mockState = {
+        user: mockUser
+      };
+      const expected = {
+        user: mockUser
+      }
+
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
+  })
 });

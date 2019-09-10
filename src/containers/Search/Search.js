@@ -4,8 +4,8 @@ import { addAlbums } from '../../actions';
 import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
-import { cleanAlbums } from '../../cleanData/cleaner'
+import PropTypes from 'prop-types'
+import { cleanAlbums } from '../../cleanData/cleaner' 
 
 export class Search extends Component {
   constructor(){
@@ -27,7 +27,6 @@ export class Search extends Component {
     .catch(err => console.log(err))
     this.setState({ search: ''})
     this.props.handleErrors('')
-    
   }
 
   render() {
