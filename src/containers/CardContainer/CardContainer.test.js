@@ -25,5 +25,41 @@ describe('CardContainer', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   });
+  describe('mapStateToProps', () => {
+    it('should return an object with the albums array', () => {
+      const mockState = {
+        albums: [{ album_name: 'mirrorland', id: 1 }],
+      };
+      const expected = {
+        albums: [{ album_name: 'mirrorland', id: 1 }],
+      };
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+
+    it('should return an object with a user object', () => {
+      const mockState = {
+        user: mockUser
+      };
+      const expected = {
+        user: mockUser
+      }
+
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
+
+    it('should return an array of favorite album objects', () => {
+      const mockState = {
+        favorites: mockAlbums
+      }
+      const expected = {
+        favorites: mockAlbums
+      }
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
+  });
 })
 
