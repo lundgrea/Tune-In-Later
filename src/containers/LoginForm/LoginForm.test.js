@@ -60,4 +60,33 @@ describe('LoginForm', () => {
       expect(mappedProps).toEqual(expected)
     });
   });
+  
+  describe('mapDispatchToProps', () => {
+    it('calls dispatch with a login action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = login(mockUser);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.login(mockUser);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('calls dispatch with a handleErrors action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = handleErrors('you suck');
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.handleErrors('you suck');
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('calls dispatch with a login action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = storeFavorites(mockFavorites);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.storeFavorites(mockFavorites);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 });
