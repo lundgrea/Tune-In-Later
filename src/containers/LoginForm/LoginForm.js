@@ -6,6 +6,7 @@ import { storeFavorites } from "../../actions";
 import { getFavorites } from '../../apiCalls/apiCalls';
 import { Route, Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+import './LoginForm.css'
 
 export class LoginForm extends Component {
   constructor() {
@@ -42,28 +43,31 @@ export class LoginForm extends Component {
     const { email, password } =  this.state
     if(!this.props.user){
       return (
-        <>
+        <article className="login">
           <form className='login-form'>
+          <h3>User Login</h3>
           <input 
             type="text"
             value={email}
             name="email"
             placeholder='example@example.com'
+            className="login-input"
             onChange={this.loginInputs}
             />
           <input 
-            type="input"
+            type="password"
             value={password}
             name="password"
             placeholder='Password'
+            className="login-input"
             onChange={this.loginInputs}
             />
           <Link to='/user'>
-              <button onClick={this.handleSubmit}>Login</button>
+              <button className="login-button" onClick={this.handleSubmit}>Login</button>
           </Link>
         </form>
         <Route exact path='/user'></Route>
-      </>
+      </article>
       )
     } else {
       return ('')

@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
 import PropTypes from 'prop-types'
+import './CardContainer.css'
+
 
 export const CardContainer = ({albums, toggleFavorite, user}) => {
     let cards = albums.map(album => {

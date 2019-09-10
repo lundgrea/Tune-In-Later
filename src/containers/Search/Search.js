@@ -5,6 +5,7 @@ import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+import './Search.css'
 import { cleanAlbums } from '../../cleanData/cleaner' 
 
 export class Search extends Component {
@@ -36,16 +37,17 @@ export class Search extends Component {
   render() {
       return (
         <div>
-          {this.state.error}
-        <form>
+        {this.state.error}
+        <form className="search-form-inner"> 
           <input
+            className="search-input"
             type="text"
             placeholder="Input Artist Name To Search"
             value={this.state.search}
             onChange={this.handleChange}
           />
           <Link to='/'>
-            <button onClick={this.fetchAlbums}>SEARCH</button>
+            <button className="search-button" onClick={this.fetchAlbums}>search</button>
           </Link>
         </form>
         </div>

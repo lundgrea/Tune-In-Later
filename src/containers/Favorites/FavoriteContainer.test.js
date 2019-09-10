@@ -13,7 +13,6 @@ describe('Favorite Container ', () => {
   const mockFavorites = [
     {album_name: 'mirrorland', album_id: 12345678, primary_genre_name: 'rap'}
   ]
-  const mockGenerateAlbum = jest.fn()
   beforeEach(() => {
     wrapper = shallow(
       <FavoriteContainer
