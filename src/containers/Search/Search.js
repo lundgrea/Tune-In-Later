@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import { addAlbums } from '../../actions';
 import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
-import { getFavorites } from '../../apiCalls/apiCalls';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+<<<<<<< HEAD
 import './Search.css'
+=======
+import { cleanAlbums } from '../../cleanData/cleaner' 
+>>>>>>> master
 
 export class Search extends Component {
   constructor(){
     super();
     this.state = {
-      search: ''
+      search: '',
+      error: ''
     }
   }
 
@@ -20,36 +24,28 @@ export class Search extends Component {
     this.setState({search: e.target.value})
   }
 
-  checkFavorites = async () => {
-    const userFavorites = await getFavorites(this.props.user.id)
-    const favoritesObject = userFavorites.includes(favorite => favorite.album_id === this.props.album_id)
-    return favoritesObject
-  }
-
-  fetchAlbums = (e) => {
+  fetchAlbums = async (e) => {
     e.preventDefault()
-    getAlbums(this.state.search)
-    .then(data => data.results.map(result => ({
-      artist_name:  result.artistName,
-      album_name:  result.collectionName,
-      primary_genre_name:  result.primaryGenreName,
-      album_id:  result.collectionId,
-      artwork_url:  result.artworkUrl100,
-      release_date: result.releaseDate,
-      content_advisory_rating: result.contentAdvisoryRating,
-      key: result.collectionId,
-      isFavorite: false
-    })))
-    .then(data => this.props.addAlbums(data))
-    .catch(err => console.log(err))
+    try {
+      const allAlbums = await getAlbums(this.state.search)
+      const cleanedAlbums = cleanAlbums(allAlbums.results)
+      this.props.addAlbums(cleanedAlbums)
+    } catch(error) {
+      this.setState({error: 'Please Try Again'})
+    }
     this.setState({ search: ''})
     this.props.handleErrors('')
-    
   }
 
   render() {
       return (
+<<<<<<< HEAD
         <form className="search-form-inner"> 
+=======
+        <div>
+          {this.state.error}
+        <form>
+>>>>>>> master
           <input
             className="search-input"
             type="text"
@@ -61,19 +57,20 @@ export class Search extends Component {
             <button className="search-button" onClick={this.fetchAlbums}>search</button>
           </Link>
         </form>
+        </div>
       )
   }
 }
 
-const mapStateToProps = store => ({
+export const mapStateToProps = store => ({
   albums: store.albums,
   user: store.user
-})
+});
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addAlbums: albums => dispatch(addAlbums(albums)),
   handleErrors: (error) => dispatch(handleErrors(error))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)
 
