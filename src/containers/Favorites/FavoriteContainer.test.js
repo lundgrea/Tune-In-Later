@@ -33,6 +33,13 @@ describe('Favorite Container ', () => {
     wrapper.find('input').at(1).simulate('click', mockEvent)
     expect(wrapper.state('filteredAlbums')).toEqual(mockFavorites)
   });
+
+  it('should gather filters based on favorite albums', () => {
+    wrapper.instance().gatherFilters()
+    expect(wrapper.state('filters')).toEqual(['rap'])
+  });
+
+  
   describe('mapStateToProps', () => {
     it('should return an object with a user object', () => {
       const mockState = {
@@ -48,10 +55,10 @@ describe('Favorite Container ', () => {
 
     it('should return an array of favorite album objects', () => {
       const mockState = {
-        favorites: mockAlbums
+        favorites: mockFavorites
       }
       const expected = {
-        favorites: mockAlbums
+        favorites: mockFavorites
       }
       const mappedProps = mapStateToProps(mockState)
       expect(mappedProps).toEqual(expected)
