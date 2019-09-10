@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { LoginForm, mapDispatchToProps, mapStateToProps } from './LoginForm';
 import { login, handleErrors, storeFavorites } from '../../actions';
-import { loginUser } from '../../apiCalls/apiCalls'
+import { loginUser, getFavorites } from '../../apiCalls/apiCalls'
 
 jest.mock('../../apiCalls/apiCalls')
 
@@ -25,6 +25,7 @@ describe('LoginForm', () => {
 
   beforeAll(() => {
     loginUser.mockImplementation(() => mockUserLogin)
+    getFavorites.mockImplementation(() => mockUser.id)
   })
 
   beforeEach(() => {
@@ -60,6 +61,22 @@ describe('LoginForm', () => {
     await wrapper.instance().handleSubmit(mockEvent)
     expect(mockLogin).toHaveBeenCalled()
   });
+
+  it.skip('should get favorites if user is logs in', async () => {
+    await wrapper.instance().handleSubmit(mockEvent)
+
+  });
+  
+  it('should store favorites after logging in', async () => {
+    await wrapper.instance().handleSubmit(mockEvent)
+    expect(mockStoreFavorites).toHaveBeenCalled()
+  });
+
+  it('should set state back to an empty string', async () => {
+    await wrapper.instance().handleSubmit(mockEvent)
+    expect(wrapper.state('password')).toEqual('')
+    expect(wrapper.state('email')).toEqual('')
+  })
 
   describe('mapStateToProps', () => {
     it('should return a string that represents error', () => {
