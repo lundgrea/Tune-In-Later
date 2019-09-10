@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import Card from '../Card/Card';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { NavLink } from "react-router-dom";
 
 
 export class FavoriteContainer extends Component {
@@ -28,13 +29,24 @@ export class FavoriteContainer extends Component {
   genreFilter = () => {
     return this.state.filteredAlbums.map(favorite => 
       {
-      return <Card
-        {...favorite}
-        toggleFavorite={this.props.toggleFavorite}
-        user={this.props.user}
-        key={favorite.id}
-        isFavorite={true}
-      />
+      return (
+        <div className="card-container">
+          <Card
+            {...favorite}
+            toggleFavorite={this.props.toggleFavorite}
+            user={this.props.user}
+            key={favorite.id}
+            isFavorite={true}
+          />
+          <NavLink
+            className="detail-button"
+            key={favorite.album_id}
+            to={`/${favorite.album_id}`}
+          >
+            Details
+          </NavLink>
+        </div>
+      );
     });
   }
 
@@ -61,13 +73,18 @@ export class FavoriteContainer extends Component {
   generateAlbums = () => {
     return this.props.favorites.map(favorite => 
       {
-          return <Card
+          return <div className='card-container'>
+          <Card
             {...favorite}
             toggleFavorite={this.props.toggleFavorite}
             user={this.props.user}
             key={favorite.id}
             isFavorite={true}
           />
+            <NavLink className='detail-button' key={favorite.album_id} to={`/${favorite.album_id}`}>
+      Details
+      </NavLink>
+          </div>
       })
   }
 

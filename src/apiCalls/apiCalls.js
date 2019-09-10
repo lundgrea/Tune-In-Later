@@ -82,8 +82,10 @@ export const deleteFavorite = async (userId, albumId) => {
       method: "DELETE"
     };
 
-    fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`, option);
-    
+    fetch(
+      `http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`,
+      option
+    );
   } catch (error) {
     throw new Error('Could not delete favorite');
   }

@@ -12,7 +12,7 @@ export const logout = () => ({
   type: "LOGOUT"
 });
 
-export const toggleFavorite = (id) => ({
+export const toggleFavorite = id => ({
   type: "TOGGLE_FAVORITE",
   id
 });
