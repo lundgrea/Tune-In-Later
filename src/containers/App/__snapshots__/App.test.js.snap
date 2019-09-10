@@ -37,6 +37,9 @@ exports[`App should map the snapshot with all the props passed in correctly 1`] 
   </form>
   <section>
     <nav>
+      <p>
+        error
+      </p>
       <div
         className="login-div"
       />

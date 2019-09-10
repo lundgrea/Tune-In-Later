@@ -97,13 +97,4 @@ describe('actions', () => {
     expect(results).toEqual(expectedActions)
   })
 
-  it('should have a DELETE_FAVORITE', () => {
-    const mockAlbumId = 8
-    const expectedActions = {
-      type: 'DELETE_FAVORITE',
-      albumId: 8
-    }
-    const results = actions.deleteFavorite(mockAlbumId)
-    expect(results).toEqual(expectedActions)
-  })
 })
