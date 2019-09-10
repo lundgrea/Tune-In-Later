@@ -1,4 +1,4 @@
-import { getAlbums, loginUser, postUser, postFavorite, getFavorite, deleteFavorite} from './apiCalls';
+import { getAlbums, loginUser, postUser, postFavorite, getFavorites, deleteFavorite} from './apiCalls';
 
 
 
@@ -218,13 +218,55 @@ describe('postFavorite', () => {
     })
 });
 
-describe('getFavorite', () => {
-  let mockResponse
+describe('getFavorites', () => {
+  let mockResponse;
+  beforeEach(() => {
+    mockResponse = [
+      {
+        "id": 2, 
+        "user_id": 1, 
+        "album_id": 558262493, 
+        "artist_name": "alt-J", 
+        "album_name": "An Awesome Wave", 
+        "artwork_url": "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/3b/43/9e/3b439e7f-9989-1dc1-9ffb-8d876ddb0da1/source/100x100bb.jpg", 
+        "release_date": "2012-09-18T07:00:00Z", 
+        "content_advisory_rating": "notExplicit", 
+        "primary_genre_name": "Alternative"
+      }
+    ];
 
-  it('should', () =>{
-
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      })
+    })
   })
-})
+
+  it('should be called with correct params', () => {
+    getFavorites(1)
+    expect(window.fetch).toHaveBeenCalledWith("http://localhost:3001/api/v1/users/1/albumfavorites");
+  });
+
+  it('should return a successfull resonse', () => {
+    expect(getFavorites()).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    })
+    expect(getFavorites()).rejects.toEqual(Error('There was a problem getting your favorites'))
+  });
+  it('should return an error if the promise rejects', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('There was a problem getting your favorites'))
+    })
+    expect(getFavorites()).rejects.toEqual(Error('There was a problem getting your favorites'))
+    })
+});
 
 
 describe('deleteFavorite', () => {
