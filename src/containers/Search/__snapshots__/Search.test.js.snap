@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search should match snapshot 1`] = `
-<form>
-  <input
-    onChange={[Function]}
-    placeholder="Input Artist Name To Search"
-    type="text"
-    value=""
-  />
-  <Link
-    to="/"
-  >
-    <button
-      onClick={[Function]}
+<div>
+  <form>
+    <input
+      onChange={[Function]}
+      placeholder="Input Artist Name To Search"
+      type="text"
+      value=""
+    />
+    <Link
+      to="/"
     >
-      SEARCH
-    </button>
-  </Link>
-</form>
+      <button
+        onClick={[Function]}
+      >
+        SEARCH
+      </button>
+    </Link>
+  </form>
+</div>
 `;

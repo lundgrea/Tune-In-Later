@@ -11,7 +11,8 @@ export class Search extends Component {
   constructor(){
     super();
     this.state = {
-      search: ''
+      search: '',
+      error: ''
     }
   }
 
@@ -19,18 +20,23 @@ export class Search extends Component {
     this.setState({search: e.target.value})
   }
 
-  fetchAlbums = (e) => {
+  fetchAlbums = async (e) => {
     e.preventDefault()
-    getAlbums(this.state.search)
-    .then(data => cleanAlbums(data.results))
-    .then(data => this.props.addAlbums(data))
-    .catch(err => console.log(err))
-    this.setState({ search: ''})
-    this.props.handleErrors('')
+    try {
+      const allAlbums = await getAlbums(this.state.search)
+      const cleanedAlbums = await cleanAlbums(allAlbums.result)
+      this.props.addAlbums(cleanedAlbums)
+      this.setState({ search: ''})
+      this.props.handleErrors('')
+    } catch(error) {
+      this.setState({error: 'Please Try Again'})
+    }
   }
 
   render() {
       return (
+        <div>
+          {this.state.error}
         <form>
           <input
             type="text"
@@ -42,6 +48,7 @@ export class Search extends Component {
             <button onClick={this.fetchAlbums}>SEARCH</button>
           </Link>
         </form>
+        </div>
       )
   }
 }
