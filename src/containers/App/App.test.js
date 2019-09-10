@@ -42,25 +42,25 @@ describe("Router", () => {
     expect(wrapper.find(App)).toHaveLength(1);        
   })
 
-  it("should show the card page when Search is selected", () => {
-    const mockAlbums = [{trackName: 'Hello', genre: 'Rock'}, {trackName: 'Yellow', genre: 'Folk'}];
-    const mockLogOut = jest.fn();
-    const mockStoreFavorites = jest.fn();
-    const wrapper = mount(
-      <Provider>
-      <MemoryRouter initialEntries={[ '/sign-up' ]}>
-        <App
-          logout={mockLogOut}
-          error={"error"}
-          user={{name: 'lola', id: 7}}
-          storeFavorites={mockStoreFavorites}
-          albums={mockAlbums}
-        />
-      </MemoryRouter>
-      </Provider>
-    )
-    expect(wrapper.find(SignUpForm)).toHaveLength(1);        
-  })
+  // it("should show the card page when Search is selected", () => {
+  //   const mockAlbums = [{trackName: 'Hello', genre: 'Rock'}, {trackName: 'Yellow', genre: 'Folk'}];
+  //   const mockLogOut = jest.fn();
+  //   const mockStoreFavorites = jest.fn();
+  //   const wrapper = mount(
+  //     <Provider>
+  //     <MemoryRouter initialEntries={[ '/sign-up' ]}>
+  //       <App
+  //         logout={mockLogOut}
+  //         error={"error"}
+  //         user={{name: 'lola', id: 7}}
+  //         storeFavorites={mockStoreFavorites}
+  //         albums={mockAlbums}
+  //       />
+  //     </MemoryRouter>
+  //     </Provider>
+  //   )
+  //   expect(wrapper.find(SignUpForm)).toHaveLength(1);        
+  // })
 
 });
   
