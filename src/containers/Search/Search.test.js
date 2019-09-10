@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Search, mapStateToProps, mapDispatchToProps } from './Search';
+import { addAlbums, handleErrors } from '../../actions';
 
 describe('Search', () => {
   let wrapper;
@@ -68,6 +69,25 @@ describe('Search', () => {
 
       const mappedProps = mapStateToProps(mockState)
       expect(mappedProps).toEqual(expected)
-    })
-  })
+    });
+  });
+  describe('mapDispatchToProps', () => {
+    it('calls dispatch with an addAlbums action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = addAlbums(1);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addAlbums(1);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('calls dispatch with an addAlbums action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = handleErrors(1);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.handleErrors(1);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 });
