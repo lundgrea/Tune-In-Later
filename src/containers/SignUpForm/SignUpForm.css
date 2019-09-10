@@ -1,6 +1,6 @@
 .signup-button {
   width: 380px;
-  margin: 10px 10px 10px 10px;   
+  margin: 10px 10px 10px 10px;
   height: 40px;
   font-size: 16px;
   padding: 10px;
@@ -17,7 +17,7 @@
   border-radius: 8px;
 }
 
-.signin-form{
+.signin-form {
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@
   justify-content: space-around;
 }
 
-.signin-form-container{
+.signin-form-container {
   min-height: 30vh;
   width: 50%;
   border-radius: 10px;
@@ -37,4 +37,3 @@
   background-color: #a8d0e6;
   padding: 20px 10px 30px 20px;
 }
-

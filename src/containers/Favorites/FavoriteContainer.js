@@ -1,34 +1,34 @@
-import React, {Component} from 'react';
-import Card from '../Card/Card';
-import { connect } from 'react-redux';
-import { toggleFavorite } from '../../actions';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import Card from "../Card/Card";
+import { connect } from "react-redux";
+import { toggleFavorite } from "../../actions";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
-
 
 export class FavoriteContainer extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       filteredAlbums: [],
-      filterButton: '',
+      filterButton: "",
       filters: []
-    }
+    };
   }
 
   componentDidMount() {
-    this.gatherFilters()
+    this.gatherFilters();
   }
 
-  setFilters = (e) => {
-    let selected = e.target.value
-    let selectedFavorites = this.props.favorites.filter(favorite => favorite.primary_genre_name === selected)
-    this.setState({filteredAlbums: selectedFavorites})
-  }
+  setFilters = e => {
+    let selected = e.target.value;
+    let selectedFavorites = this.props.favorites.filter(
+      favorite => favorite.primary_genre_name === selected
+    );
+    this.setState({ filteredAlbums: selectedFavorites });
+  };
 
   genreFilter = () => {
-    return this.state.filteredAlbums.map(favorite => 
-      {
+    return this.state.filteredAlbums.map(favorite => {
       return (
         <div className="card-container">
           <Card
@@ -48,32 +48,39 @@ export class FavoriteContainer extends Component {
         </div>
       );
     });
-  }
+  };
 
   gatherFilters = () => {
-    let filters = []
+    let filters = [];
     this.props.favorites.forEach(favorite => {
       if (!filters.includes(favorite.primary_genre_name)) {
-        filters.push(favorite.primary_genre_name)
+        filters.push(favorite.primary_genre_name);
       }
-    })
-    this.setState({filters})
-  }
+    });
+    this.setState({ filters });
+  };
 
   populateGenreButtons = () => {
-    return this.state.filters.map((genre) => {
+    return this.state.filters.map(genre => {
       return (
         <>
           <label htmlFor={genre}>{genre}</label>
-          <input type="radio" name="genre" value={genre} placeholder="radio buttons" onClick={this.setFilters}></input>
-        </>)
-      })
-  }
+          <input
+            type="radio"
+            name="genre"
+            value={genre}
+            placeholder="radio buttons"
+            onClick={this.setFilters}
+          ></input>
+        </>
+      );
+    });
+  };
 
   generateAlbums = () => {
-    return this.props.favorites.map(favorite => 
-      {
-          return <div className='card-container'>
+    return this.props.favorites.map(favorite => {
+      return (
+        <div className="card-container">
           <Card
             {...favorite}
             toggleFavorite={this.props.toggleFavorite}
@@ -81,60 +88,65 @@ export class FavoriteContainer extends Component {
             key={favorite.id}
             isFavorite={true}
           />
-            <NavLink className='detail-button' key={favorite.album_id} to={`/${favorite.album_id}`}>
-      Details
-      </NavLink>
-          </div>
-      })
-  }
+          <NavLink
+            className="detail-button"
+            key={favorite.album_id}
+            to={`/${favorite.album_id}`}
+          >
+            Details
+          </NavLink>
+        </div>
+      );
+    });
+  };
 
   clearInputs = () => {
-    this.generateAlbums()
-    this.setState({filteredAlbums: [], filterButton: ''})
-  } 
+    this.generateAlbums();
+    this.setState({ filteredAlbums: [], filterButton: "" });
+  };
 
   render() {
-  return (
-    <section>
-      <div>
-        <fieldset>
-          <h3>Filter By Genre</h3>
-          <label htmlFor="show all">Show All</label>
-          <input
-            type="radio"
-            name="genre"
-            value="show all"
-            placeholder="radio buttons"
-            onClick={this.clearInputs}
-          ></input>
-          {this.populateGenreButtons()}
-        </fieldset>
-      </div>
-      <div className="favorites-container">
-        {this.state.filteredAlbums.length === 0 && this.generateAlbums()}
-        {this.state.filteredAlbums.length > 0 && this.genreFilter()}
-      </div>
-    </section>
-  );
+    return (
+      <section>
+        <div>
+          <fieldset>
+            <h3>Filter By Genre</h3>
+            <label htmlFor="show all">Show All</label>
+            <input
+              type="radio"
+              name="genre"
+              value="show all"
+              placeholder="radio buttons"
+              onClick={this.clearInputs}
+            ></input>
+            {this.populateGenreButtons()}
+          </fieldset>
+        </div>
+        <div className="favorites-container">
+          {this.state.filteredAlbums.length === 0 && this.generateAlbums()}
+          {this.state.filteredAlbums.length > 0 && this.genreFilter()}
+        </div>
+      </section>
+    );
   }
 }
 
 export const mapStateToProps = store => ({
   user: store.user,
   favorites: store.favorites
-})
-
+});
 
 export const mapDispatchToProps = dispatch => ({
-  toggleFavorite: (id) => dispatch(toggleFavorite(id))
-})
+  toggleFavorite: id => dispatch(toggleFavorite(id))
+});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(FavoriteContainer)
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FavoriteContainer);
 
 FavoriteContainer.propTypes = {
   user: PropTypes.object.isRequired,
   favorites: PropTypes.array.isRequired,
   toggleFavorite: PropTypes.func.isRequired
-}
+};
