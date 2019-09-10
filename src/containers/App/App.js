@@ -33,36 +33,37 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
         </div>
         <p className="error">{error}</p>
         <div className="login-div">
-          {!user && <Link  to="/sign-up" className="nav-links">Sign Up Page</Link>}
-          {!user && <Link  to="/login" className="nav-links">Login Page</Link>}
+          {!user && <Link  to="/sign-up" className="nav-links">New User</Link>}
+          {!user && <Link  to="/login" className="nav-links">Login</Link>}
         </div>
         <div className='home-nav'>
           {user && <NavLink exact to="/my-collection" onClick={sendFavorites}>Favorites</NavLink>}
           {user && <NavLink exact to="/">Home</NavLink>}
         </div>
       </nav>
-      <article>
+      <article className="main-container">
         <form className="search-form">
-          <NavLink exact to="/search" className="a-search">Search</NavLink>
+          <div className="search-form-container">
+          <NavLink exact to="/search" className="a-search">search tunes</NavLink>
           {user && <NavLink exact to="/" onClick={logout}>LOGOUT</NavLink>}
           <Route 
           exact path="/search" 
           component={Search}/>
+          </div>
         </form>
-      </article>
-      <section className="login-form-container">
-        <Route exact path="/" />
-        <Route 
-        exact path="/login" 
-        component={LoginForm} 
-        />
-      </section>
-      <section className="signup-form-container">
-        <Route 
-        exact path="/sign-up"
-        component={SignUpForm} 
-        />
-      </section>
+        <section className="login-form-container">
+          <Route exact path="/" />
+          <Route 
+          exact path="/login" 
+          component={LoginForm} 
+          />
+        </section>
+        <section className="signup-form-container">
+          <Route 
+          exact path="/sign-up"
+          component={SignUpForm} 
+          />
+        </section>
       <div className="favorites-container">
         <Route 
         exact path="/my-collection" 
@@ -78,9 +79,10 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
             return album.album_id === parseInt(id)
           })
           return description && <AlbumDetails album={description} />
-          }}
+        }}
         />
       </div>
+      </article>
     </section>
   </main>
   );

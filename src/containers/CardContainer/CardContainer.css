@@ -1,0 +1,11 @@
+.card-container {
+  background: white;
+  opacity: 0.8;
+  min-height: 30vh;
+  width: 30vh;
+  flex: 1 0 25%;
+  border: grey solid 2px;
+  border-radius: 8px;
+  margin: 15px;
+  text-align: center;
+}
