@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Source Sans Pro";
-  src: url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap")
+  src: url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
 }
 
 body {
@@ -12,7 +12,7 @@ a {
 }
 
 h1 {
-  color: #FFC602;
+  color: #ffc602;
   font-size: 60px;
   margin: 10px 10px 10px 10px;
 }
@@ -25,9 +25,9 @@ nav {
   align-items: center;
   padding-right: 30px;
   background-color: white;
-   border-top: grey solid 2px;
-   border-left: grey solid 2px;
-   border-right: grey solid 2px;
+  border-top: grey solid 2px;
+  border-left: grey solid 2px;
+  border-right: grey solid 2px;
 }
 
 input {
@@ -48,7 +48,7 @@ section {
 fieldset {
   text-align: center;
   border: 1px solid rgb(168, 208, 230);
-  background-color: rgb(168, 208, 230, .8);
+  background-color: rgb(168, 208, 230, 0.8);
   border-radius: 8px;
 }
 
@@ -76,7 +76,7 @@ label {
   text-align: center;
   width: 21%;
   height: 37px;
-  background-color: #23305E;
+  background-color: #23305e;
 }
 
 .nav-links {
@@ -93,7 +93,6 @@ label {
   height: 35px;
 }
 
-
 .a-search {
   font-size: 35px;
   color: #a8d0e6;
@@ -106,7 +105,7 @@ a:focus {
 
 .logo {
   width: 100px;
-  color: #F2B54a
+  color: #f2b54a;
 }
 
 .logo-lockup {
@@ -120,26 +119,25 @@ a:focus {
 
 .main-container {
   display: flex;
-  background-color: #23305E;
+  background-color: #23305e;
 }
 
 .search-form {
   min-height: 100vh;
   display: flex;
   min-width: 25vw;
-  background-color: #39424E;
+  background-color: #39424e;
   margin: 0px 00px 0px 0px;
   align-items: center;
   padding-top: 10px;
   flex-direction: column;
   justify-content: space-between;
   border: grey solid 2px;
-  
 }
 
-.search-form-container{
+.search-form-container {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   width: 80%;
 }
@@ -152,7 +150,7 @@ a:focus {
   flex-wrap: wrap;
 }
 
-.login-form-container{
+.login-form-container {
   justify-content: center;
   align-items: center;
   padding-top: 50px;
@@ -187,13 +185,13 @@ a:focus {
 }
 
 .detail-button {
-    border: solid 10px rgb(168, 208, 230);
-    border-radius: 8px;
-    font-size: larger;
-    background-color: rgb(168, 208, 230);
-    font-weight: 900;
-    color: white;
-    margin-bottom: 10px;
+  border: solid 10px rgb(168, 208, 230);
+  border-radius: 8px;
+  font-size: larger;
+  background-color: rgb(168, 208, 230);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .details-container {

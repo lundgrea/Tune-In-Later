@@ -61,7 +61,7 @@ npm test
  - Alyssa Lundgren [@lundgrea](https://github.com/lundgrea)
 
 ## Screenshots
-![]()
-![]()
-![]()
-![]()
+![](Images/homepage.png)
+![](Images/favorites.png)
+![](Images/filter.png)
+
