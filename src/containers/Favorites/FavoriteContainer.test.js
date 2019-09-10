@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { FavoriteContainer, mapStateToProps, mapDispatchToProps } from './FavoriteContainer';
 import { toggleFavorite } from '../../actions'
-import { wrap } from 'module';
+
 describe('Favorite Container ', () => {
   let wrapper;
   const mockUser = {
@@ -13,6 +13,7 @@ describe('Favorite Container ', () => {
   const mockFavorites = [
     {album_name: 'mirrorland', album_id: 12345678, primary_genre_name: 'rap'}
   ]
+  const mockGenerateAlbum = jest.fn()
   beforeEach(() => {
     wrapper = shallow(
       <FavoriteContainer
@@ -39,7 +40,12 @@ describe('Favorite Container ', () => {
     expect(wrapper.state('filters')).toEqual(['rap'])
   });
 
-  
+  it('should reset state on click', () => {
+    wrapper.find('input').at(0).simulate('click')
+
+    expect(wrapper.state('filteredAlbums')).toEqual([])
+    expect(wrapper.state('filterButton')).toEqual('')
+  })
   describe('mapStateToProps', () => {
     it('should return an object with a user object', () => {
       const mockState = {
