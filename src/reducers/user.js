@@ -1,4 +1,4 @@
-// import {toggleFavoriteBlocker} from '../components/App/App'
+
 
 export const userReducer = (state='', action) => {
   switch(action.type) {
@@ -7,10 +7,9 @@ export const userReducer = (state='', action) => {
     case 'CREATE_USER' :
       return action.user
     case 'LOGOUT' :
-      return ''
+      return 'Goodbye'
     case 'LOGIN_CHECK':
-      // toggleFavoriteBlocker()
-      return ''
+      return 'Please Loging To Favorite Albums'
     default : 
       return state
   } 

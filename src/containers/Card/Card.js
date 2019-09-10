@@ -46,12 +46,11 @@ export const Card = props => {
   }
   
   const check2Fav = async () => {
-    if (!props.user){
-      props.handleErrors("Log In To Save Your Albums to Favorites");
-    } else {
-      let userFavorites = await user2Favorites()
-      toggleUserFavorites(userFavorites)
-        }
+  if (!props.user){
+    props.handleErrors("Log In To Save Your Albums to Favorites");
+  } else {
+    let userFavorites = await user2Favorites()
+    toggleUserFavorites(userFavorites)
       }
   
   
