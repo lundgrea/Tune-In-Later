@@ -29,7 +29,7 @@ describe('Search', () => {
       <Search
       albums={mockAlbums}
       user={mockUser}
-      addAlbum={jest.fn()}
+      addAlbums={jest.fn()}
       handleErrors={mockHandleErrors}
       />
     )
@@ -97,7 +97,7 @@ describe('Search', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
 
-    it('calls dispatch with an addAlbums action', () => {
+    it('calls dispatch with an handleErrors action', () => {
       const mockDispatch = jest.fn();
       const actionToDispatch = handleErrors('you suck');
       const mappedProps = mapDispatchToProps(mockDispatch);

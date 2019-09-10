@@ -40,7 +40,7 @@ export const postUser = async newUser => {
     const result = await response.json();
     return result;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('There was an error creating your account');
   }
 };
 
@@ -60,7 +60,7 @@ export const postFavorite = async (userId, newFavorite) => {
     const result = await response.json();
     return result;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('There was a problem adding your favorite');
   }
 };
 
@@ -72,7 +72,7 @@ export const getFavorites = async userId => {
     const result = await response.json();
     return result.favorites;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('There was a problem getting your favorites');
   }
 };
 
@@ -85,6 +85,6 @@ export const deleteFavorite = async (userId, albumId) => {
     fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`, option);
     
   } catch (error) {
-    throw new Error(error );
+    throw new Error('Could not delete favorite');
   }
 };
