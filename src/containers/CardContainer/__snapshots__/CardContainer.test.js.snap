@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardContainer should match snapshot 1`] = `
+<Fragment>
+  <div
+    className="card-container"
+  >
+    <Connect(Card)
+      album_id={12345}
+      album_name="mirrorland"
+      toggleFavorite={[MockFunction]}
+      user={
+        Object {
+          "email": "aidanmckay2000@gmail.com",
+          "id": 1,
+          "name": "aidan",
+        }
+      }
+    />
+    <NavLink
+      key="12345"
+      to="/12345"
+    >
+      Details
+    </NavLink>
+  </div>
+  <div
+    className="card-container"
+  >
+    <Connect(Card)
+      album_id={123456}
+      album_name="robots"
+      toggleFavorite={[MockFunction]}
+      user={
+        Object {
+          "email": "aidanmckay2000@gmail.com",
+          "id": 1,
+          "name": "aidan",
+        }
+      }
+    />
+    <NavLink
+      key="123456"
+      to="/123456"
+    >
+      Details
+    </NavLink>
+  </div>
+</Fragment>
+`;

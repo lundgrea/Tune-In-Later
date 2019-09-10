@@ -102,13 +102,13 @@ export class FavoriteContainer extends Component {
   }
 }
 
-const mapStateToProps = store => ({
+export const mapStateToProps = store => ({
   user: store.user,
   favorites: store.favorites
 })
 
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   toggleFavorite: (id) => dispatch(toggleFavorite(id))
 })
 
