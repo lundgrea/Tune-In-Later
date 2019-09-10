@@ -109,11 +109,55 @@ describe('loginUser', () => {
 
 describe('postUser', () => {
   let mockResponse
+  let mockRequest;
+  beforeEach(() => {
+    mockRequest = {
+      method: 'POST',
+      body: undefined,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    mockResponse = [
+      {
+      id: 2, 
+      name: "Alex", 
+      email: "alex@gmail.com"
+      }
+    ];
 
-  it('should', () =>{
-
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      })
+    })
   })
-})
+
+  it('should be called with correct params', () =>{
+    postUser()
+    expect(window.fetch).toHaveBeenCalledWith("http://localhost:3001/api/v1/users", mockRequest);
+  });
+
+  it('should return a successfull resonse', () => {
+    expect(postUser()).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    })
+    expect(postUser()).rejects.toEqual(Error('There was an error creating your account'))
+  });
+  it('should return an error if the promise rejects', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('There was an error creating your account'))
+    })
+    expect(postUser()).rejects.toEqual(Error('There was an error creating your account'))
+    })
+});
 
 
 describe('postFavorite', () => {

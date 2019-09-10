@@ -40,7 +40,7 @@ export const postUser = async newUser => {
     const result = await response.json();
     return result;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('There was an error creating your account');
   }
 };
 
