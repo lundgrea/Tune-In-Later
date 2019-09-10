@@ -23,7 +23,7 @@ export class LoginForm extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-
+    this.props.handleErrors('')
     const loggedUser= await loginUser(this.state)
     if(loggedUser.error) {
       this.props.handleErrors(loggedUser.error)

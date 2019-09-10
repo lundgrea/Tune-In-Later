@@ -82,10 +82,9 @@ export const deleteFavorite = async (userId, albumId) => {
       method: "DELETE"
     };
 
-    const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`, option);
-    console.log(response.ok);
+    fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`, option);
     
   } catch (error) {
-    console.log(error );
+    throw new Error(error );
   }
 };
