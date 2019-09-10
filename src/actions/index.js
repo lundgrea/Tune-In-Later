@@ -31,8 +31,3 @@ export const storeFavorites = albums => ({
   type: "STORE_FAVORITES",
   albums
 });
-
-// export const deleteFavorite = albumId => ({
-//   type: "DELETE_FAVORITE",
-//   albumId
-// });

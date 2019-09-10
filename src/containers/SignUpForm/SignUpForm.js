@@ -4,7 +4,7 @@ import { handleErrors } from '../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
  
-class SignUpForm extends Component {
+export class SignUpForm extends Component {
   constructor(props) {
     super(props);
       this.state = {

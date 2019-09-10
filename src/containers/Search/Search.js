@@ -4,10 +4,10 @@ import { addAlbums } from '../../actions';
 import { getAlbums } from '../../apiCalls/apiCalls';
 import { handleErrors } from '../../actions/index';
 import { getFavorites } from '../../apiCalls/apiCalls';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
-class Search extends Component {
+export class Search extends Component {
   constructor(){
     super();
     this.state = {
