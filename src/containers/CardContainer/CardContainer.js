@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
 import PropTypes from 'prop-types'
 
-const CardContainer = ({albums, toggleFavorite, user}) => {
+export const CardContainer = ({albums, toggleFavorite, user}) => {
     let cards = albums.map(album => {
     return (
       <div className='card-container'>

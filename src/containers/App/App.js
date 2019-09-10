@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
 
 
 
-const App = ({ logout, error, user, storeFavorites, albums}) => {
+export const App = ({ logout, error, user, storeFavorites, albums}) => {
   const sendFavorites = async () => {
     const newFavorites = await getFavorites(user.id)
     storeFavorites(newFavorites)

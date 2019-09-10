@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should map the snapshot with all the props passed in correctly 1`] = `
+<main>
+  <form
+    className="search-form"
+  >
+    <h1>
+      TUNE-IN LATER
+    </h1>
+    <NavLink
+      exact={true}
+      to="/search"
+    >
+      Search
+    </NavLink>
+    <NavLink
+      exact={true}
+      onClick={[MockFunction]}
+      to="/"
+    >
+      LOGOUT
+    </NavLink>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Search)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/search"
+    />
+  </form>
+  <section>
+    <nav>
+      <div
+        className="login-div"
+      />
+      <div
+        className="home-nav"
+      >
+        <NavLink
+          exact={true}
+          onClick={[Function]}
+          to="/my-collection"
+        >
+          Favorites
+        </NavLink>
+        <NavLink
+          exact={true}
+          to="/"
+        >
+          Home
+        </NavLink>
+      </div>
+    </nav>
+    <Route
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(LoginForm)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/login"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(SignUpForm)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/sign-up"
+    />
+    <div
+      className="favorites-container"
+    >
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(FavoriteContainer)",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/my-collection"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(CardContainer)",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/search"
+      />
+      <Route
+        exact={true}
+        path="/:id"
+        render={[Function]}
+      />
+    </div>
+  </section>
+</main>
+`;
