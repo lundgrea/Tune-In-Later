@@ -29,7 +29,7 @@ describe('Search', () => {
       <Search
       albums={mockAlbums}
       user={mockUser}
-      addAlbum={jest.fn()}
+      addAlbums={jest.fn()}
       handleErrors={mockHandleErrors}
       />
     )
