@@ -28,7 +28,7 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
     <section>
       <nav>
         <div className="logo-lockup">
-          <img className="logo" src="https://image.flaticon.com/icons/svg/126/126508.svg"></img>
+          <img className="logo" src="https://image.flaticon.com/icons/svg/126/126508.svg" alt="logo"></img>
           <h1>TUNE-IN LATER</h1>
         </div>
         <p className="error">{error}</p>
@@ -37,12 +37,12 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
           {!user && <Link  to="/login" className="nav-links">Login</Link>}
         </div>
         <div className='home-nav'>
-          {user && <NavLink exact to="/my-collection" onClick={sendFavorites}>Favorites</NavLink>}
-          {user && <NavLink exact to="/">Home</NavLink>}
+          {user && <NavLink exact to="/my-collection" onClick={sendFavorites} className="logged-in-header-nav">Favorites</NavLink>}
+          {user && <NavLink exact to="/" className="logged-in-header-nav">Home</NavLink>}
         </div>
       </nav>
       <article className="main-container">
-        <form className="search-form">
+        <article className="search-form">
           <div className="search-form-container">
           <NavLink exact to="/search" className="a-search">search tunes</NavLink>
           {user && <NavLink exact to="/" onClick={logout}>LOGOUT</NavLink>}
@@ -50,7 +50,7 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
           exact path="/search" 
           component={Search}/>
           </div>
-        </form>
+        </article>
         <section className="login-form-container">
           <Route exact path="/" />
           <Route 
