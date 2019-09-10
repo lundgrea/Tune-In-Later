@@ -2,8 +2,11 @@
 
 exports[`Search should match snapshot 1`] = `
 <div>
-  <form>
+  <form
+    className="search-form-inner"
+  >
     <input
+      className="search-input"
       onChange={[Function]}
       placeholder="Input Artist Name To Search"
       type="text"
@@ -13,9 +16,10 @@ exports[`Search should match snapshot 1`] = `
       to="/"
     >
       <button
+        className="search-button"
         onClick={[Function]}
       >
-        SEARCH
+        search
       </button>
     </Link>
   </form>
