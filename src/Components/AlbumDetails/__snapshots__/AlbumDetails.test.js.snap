@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album Details should match snapshot 1`] = `
+<div>
+  <article>
+    <h2>
+      EarthGang
+    </h2>
+    <p>
+      MirrorLand
+    </p>
+    <p>
+      Rap
+    </p>
+    <img
+      alt=""
+      src="asdfjaskl;df"
+    />
+  </article>
+  <Link
+    to="/search"
+  >
+    BACK
+  </Link>
+</div>
+`;
