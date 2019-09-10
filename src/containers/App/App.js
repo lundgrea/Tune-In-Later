@@ -17,8 +17,8 @@ import PropTypes from "prop-types"
 
 export const App = ({ logout, error, user, storeFavorites, albums}) => {
   const sendFavorites = async () => {
-    const something = await getFavorites(user.id)
-    const newFavorites = something.map(album => ({
+    const listedAlbums = await getFavorites(user.id)
+    const newFavorites = listedAlbums.map(album => ({
       ...album, isFavorite: true
     }))
     storeFavorites(newFavorites)
@@ -86,15 +86,11 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
   );
 };
 
-
-
-
 export const mapStateToProps = store => ({
   albums: store.albums,
   error: store.error,
   user: store.user,
 });
-
 
 export const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
@@ -102,7 +98,6 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
 
 App.propTypes = {
   albums: PropTypes.array.isRequired,
