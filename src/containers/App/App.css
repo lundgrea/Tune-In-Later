@@ -3,57 +3,12 @@
   src: url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap")
 }
 
-.App {
-  text-align: center;
-}
 body {
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-}
-
-.login-div {
-  width: 50%;
-}
-
-.nav-links:hover {
-  color: #23305E;
-}
-
-.nav-links {
-  font-size: 20px;
-  display: inline;
-  color: #a8d0e6;
-  float: right;
-  margin-right: 40px;
+  background-color: aliceblue;
 }
 
 a {
   text-decoration: none;
-}
-
-.a-search {
-  font-size: 35px;
-  color: #a8d0e6;
-}
-
-a:focus {
-  text-decoration: none;
-  color: lightgrey;
-}
-
-header {
-  background-color: white
-}
-
-.logo {
-  width: 100px;
-  color: #F2B54a
-}
-
-.logo-lockup {
-  display: flex;
-  margin: 10px 0px 10px 48px;
 }
 
 h1 {
@@ -62,47 +17,22 @@ h1 {
   margin: 10px 10px 10px 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 nav {
   max-height: 30vh;
-  width: 100%;
+  width: 97.65vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 30px;
   background-color: white;
-}
-
-.main-container {
-  display: flex;
-  background-color: #23305E;
+   border-top: grey solid 2px;
+   border-left: grey solid 2px;
+   border-right: grey solid 2px;
 }
 
 input {
   font-size: 16px;
   padding: 5px 5px 5px 5px;
-}
-
-.search-form {
-  min-height: 100vh;
-  display: flex;
-  min-width: 25vw;
-  background-color: #39424E;
-  margin: 0px 00px 0px 0px;
-  justify-content: center;
-  padding-top: 10px
-  /* border-radius: 10px; */
-}
-
-.search-form-container{
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  width: 80%;
-  /* width: 325px; */
 }
 
 main {
@@ -115,10 +45,109 @@ section {
   width: 100%;
 }
 
+fieldset {
+  text-align: center;
+  border: 1px solid rgb(168, 208, 230);
+  background-color: rgb(168, 208, 230, .8);
+  border-radius: 8px;
+}
+
+label {
+  margin-left: 10px;
+}
+
+.App {
+  text-align: center;
+}
+
+.login-div {
+  width: 50%;
+}
+
+.nav-links:hover {
+  color: white;
+  font-size: 22px;
+  float: right;
+  margin-right: 40px;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding-top: 10px;
+  font-weight: 700;
+  text-align: center;
+  width: 21%;
+  height: 37px;
+  background-color: #23305E;
+}
+
+.nav-links {
+  font-size: 20px;
+  color: #a8d0e6;
+  float: right;
+  margin-right: 40px;
+  border: 2px solid #a8d0e6;
+  border-radius: 8px;
+  padding-top: 10px;
+  font-weight: 700;
+  text-align: center;
+  width: 20%;
+  height: 35px;
+}
+
+
+.a-search {
+  font-size: 35px;
+  color: #a8d0e6;
+}
+
+a:focus {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+.logo {
+  width: 100px;
+  color: #F2B54a
+}
+
+.logo-lockup {
+  display: flex;
+  margin: 10px 0px 10px 48px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.main-container {
+  display: flex;
+  background-color: #23305E;
+}
+
+.search-form {
+  min-height: 100vh;
+  display: flex;
+  min-width: 25vw;
+  background-color: #39424E;
+  margin: 0px 00px 0px 0px;
+  align-items: center;
+  padding-top: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: grey solid 2px;
+  
+}
+
+.search-form-container{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  width: 80%;
+}
+
 .favorites-container {
   overflow: hidden;
   width: 100%;
-  min-height: 60vh;
+  min-height: 84vh;
   display: flex;
   flex-wrap: wrap;
 }
@@ -127,11 +156,60 @@ section {
   justify-content: center;
   align-items: center;
   padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: grey solid 2px;
 }
 
 .logged-in-header-nav {
   font-size: 20px;
   display: inline;
   color: #a8d0e6;
-  /* margin: 10px 50px 0px 20px; */
+}
+
+.logout-link {
+  margin-bottom: 10px;
+  border: 2px solid white;
+  border-radius: 8px;
+  width: 40%;
+  padding-top: 10px;
+  height: 30px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+.images {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.detail-button {
+    border: solid 10px rgb(168, 208, 230);
+    border-radius: 8px;
+    font-size: larger;
+    background-color: rgb(168, 208, 230);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.details-container {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 8px;
+  border: grey solid 2px;
+}
+
+.details {
+  text-align: center;
+  width: 600px;
+  font-size: larger;
+  margin-top: 40px;
 }

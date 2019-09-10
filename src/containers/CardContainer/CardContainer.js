@@ -17,7 +17,7 @@ export const CardContainer = ({albums, toggleFavorite, user}) => {
         user={user}
         key={album.id}
       />
-      <NavLink key={album.album_id} to={`/${album.album_id}`}>
+      <NavLink className='detail-button' key={album.album_id} to={`/${album.album_id}`}>
       Details
       </NavLink>
     </div>

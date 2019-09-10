@@ -31,25 +31,23 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
           <img className="logo" src="https://image.flaticon.com/icons/svg/126/126508.svg" alt="logo"></img>
           <h1>TUNE-IN LATER</h1>
         </div>
-        <p className="error">{error}</p>
         <div className="login-div">
+          {error && <p className="error">{error}</p>}
           {!user && <Link  to="/sign-up" className="nav-links">New User</Link>}
           {!user && <Link  to="/login" className="nav-links">Login</Link>}
-        </div>
-        <div className='home-nav'>
-          {user && <NavLink exact to="/my-collection" onClick={sendFavorites} className="logged-in-header-nav">Favorites</NavLink>}
-          {user && <NavLink exact to="/" className="logged-in-header-nav">Home</NavLink>}
+          {user && <NavLink exact to="/my-collection" onClick={sendFavorites} className="nav-links">Favorites</NavLink>}
+          {user && <NavLink exact to="/" className="nav-links">Home</NavLink>}
         </div>
       </nav>
       <article className="main-container">
         <article className="search-form">
           <div className="search-form-container">
-          <NavLink exact to="/search" className="a-search">search tunes</NavLink>
-          {user && <NavLink exact to="/" onClick={logout}>LOGOUT</NavLink>}
+          <NavLink exact to="/search" className="a-search">Search Tunes</NavLink>
           <Route 
           exact path="/search" 
           component={Search}/>
           </div>
+          {user && <NavLink className='logout-link' exact to="/" onClick={logout}>LOGOUT</NavLink>}
         </article>
         <section className="login-form-container">
           <Route exact path="/" />
@@ -70,7 +68,9 @@ export const App = ({ logout, error, user, storeFavorites, albums}) => {
             exact path="/search"
             component= {CardContainer}
             />
-            <Route exact path="/:id" render={({match}) => {
+            <Route 
+            exact path="/:id" 
+            render={({match}) => {
               const {id} = match.params;
               const description = albums.find(album => {
               return album.album_id === parseInt(id)
