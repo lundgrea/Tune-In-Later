@@ -1,11 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { LoginForm, mapDispatchToProps, mapStateToProps } from './LoginForm';
-import { login, handleErrors, storeFavorites } from '../../actions'
+import { login, handleErrors, storeFavorites } from '../../actions';
+import { loginUser } from '../../apiCalls/apiCalls'
+
+jest.mock('../../apiCalls/apiCalls')
+
 describe('LoginForm', () => {
   let wrapper;
   const mockUser = {
     id: 1, name: 'aidan', email: 'aidanmckay2000@gmail.com'
+  }
+  const mockUserLogin = {
+    email: 'aidanmckay2000@gmail.com', password: 'password'
   }
   const mockLogin = jest.fn()
   const mockStoreFavorites = jest.fn()
@@ -13,7 +20,15 @@ describe('LoginForm', () => {
   const mockFavorites = [
     {album_name: 'mirrorland', album_id: 12345678, primary_genre_name: 'rap'}
   ]
+
+  let mockEvent
+
+  beforeAll(() => {
+    loginUser.mockImplementation(() => mockUserLogin)
+  })
+
   beforeEach(() => {
+    mockEvent = { preventDefault: jest.fn() }
     wrapper = shallow(
       <LoginForm
         error=''
@@ -29,10 +44,21 @@ describe('LoginForm', () => {
     expect(wrapper).toMatchSnapshot() 
   });
   
-  it('should call login inputs on change and set state', () => {
+  it.skip('should call login inputs on change and set state', () => {
     const mockEvent = { target: {name: 'email', value: 'aidanmckay2000@gmail.com'}}
     wrapper.find('.login-input').simulate('change', mockEvent)
     expect(wrapper.state('email')).toEqual('aidanmckay2000@gmail.com')
+  });
+
+  it('should throw an error if user doesn\'t exist', async () => {
+    loginUser.mockImplementation(() => mockUser)
+    await wrapper.instance().handleSubmit(mockEvent);
+    expect(mockHandleError).toHaveBeenCalled()
+  });
+
+  it('should login user if user object is acceptable', async () => {
+    await wrapper.instance().handleSubmit(mockEvent)
+    expect(mockLogin).toHaveBeenCalled()
   });
 
   describe('mapStateToProps', () => {
@@ -60,7 +86,7 @@ describe('LoginForm', () => {
       expect(mappedProps).toEqual(expected)
     });
   });
-  
+
   describe('mapDispatchToProps', () => {
     it('calls dispatch with a login action', () => {
       const mockDispatch = jest.fn();
