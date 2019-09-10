@@ -4,7 +4,7 @@ import {
   loginUser,
   postUser,
   postFavorite,
-  getFavorite,
+  getFavorites,
   deleteFavorite
 } from "./apiCalls";
 

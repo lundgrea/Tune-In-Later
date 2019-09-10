@@ -1,26 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Album Details should match snapshot 1`] = `
-<div>
-  <article>
-    <h2>
+<article
+  className="details-container"
+>
+  <div
+    className="details"
+  >
+    <h1>
       EarthGang
-    </h2>
-    <p>
-      MirrorLand
-    </p>
-    <p>
-      Rap
-    </p>
+    </h1>
     <img
       alt=""
       src="asdfjaskl;df"
     />
-  </article>
+    <p>
+       Album: 
+      MirrorLand
+    </p>
+    <p>
+      Release Date: 
+      9/05/2019
+    </p>
+    <p>
+      Genre: 
+      Rap
+    </p>
+  </div>
   <Link
+    className="detail-button"
     to="/search"
   >
     BACK
   </Link>
-</div>
+</article>
 `;

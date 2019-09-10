@@ -18,6 +18,7 @@ exports[`CardContainer should match snapshot 1`] = `
       }
     />
     <NavLink
+      className="detail-button"
       key="12345"
       to="/12345"
     >
@@ -40,6 +41,7 @@ exports[`CardContainer should match snapshot 1`] = `
       }
     />
     <NavLink
+      className="detail-button"
       key="123456"
       to="/123456"
     >

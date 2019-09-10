@@ -36,20 +36,31 @@ exports[`Favorite Container  should match snapshot 1`] = `
   <div
     className="favorites-container"
   >
-    <Connect(Card)
-      album_id={12345678}
-      album_name="mirrorland"
-      isFavorite={true}
-      primary_genre_name="rap"
-      toggleFavorite={[MockFunction]}
-      user={
-        Object {
-          "email": "aidanmckay2000@gmail.com",
-          "id": 1,
-          "name": "aidan",
+    <div
+      className="card-container"
+    >
+      <Connect(Card)
+        album_id={12345678}
+        album_name="mirrorland"
+        isFavorite={true}
+        primary_genre_name="rap"
+        toggleFavorite={[MockFunction]}
+        user={
+          Object {
+            "email": "aidanmckay2000@gmail.com",
+            "id": 1,
+            "name": "aidan",
+          }
         }
-      }
-    />
+      />
+      <NavLink
+        className="detail-button"
+        key="12345678"
+        to="/12345678"
+      >
+        Details
+      </NavLink>
+    </div>
   </div>
 </section>
 `;
